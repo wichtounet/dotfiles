@@ -4,10 +4,14 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" Configure indentation
 set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" Fix indentation in namespaces
+set cino=N-s
 
 set nohlsearch
 set fileencodings=utf-8
