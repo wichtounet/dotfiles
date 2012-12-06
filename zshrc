@@ -6,6 +6,9 @@ export PATH="/usr/lib64/ccache/bin:$PATH"
 #Add Dropbox to the path
 export PATH="/home/wichtounet/.dropbox-dist/:$PATH"
 
+# Force pdflatex to print with lots of columns
+export max_print_line=100000
+
 export LD_PRELOAD=""
 
 # Enable colors
@@ -53,7 +56,7 @@ setopt hist_ignore_all_dups
 export ZSH=$HOME/.oh-my-zsh
 
 export ZSH_THEME="robbyrussell"
-plugins=(git git-flow taskwarrior)
+plugins=(autojump git git-flow taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
 
