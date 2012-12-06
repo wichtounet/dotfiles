@@ -45,7 +45,7 @@ let g:languagetool_jar=$HOME . '/.vim/languagetool/LanguageTool.jar'
 set <m-i>=I
 
 " Use a nicer color scheme
-colorscheme wombat
+colorscheme desert
 
 " Supertab configuration
 let g:SuperTabClosePreviewOnPopupClose = 1
