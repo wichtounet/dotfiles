@@ -4,3 +4,6 @@
 	editor = vim
 [core]
 	editor = vim
+	autocrlf = input
+[push]
+	default = simple

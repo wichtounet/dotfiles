@@ -3,6 +3,9 @@ export REPORTTIME=10
 #Add ccache to the path
 export PATH="/usr/lib64/ccache/bin:$PATH"
 
+export CCACHE_DIR="/var/tmp/ccache"
+export CCACHE_SIZE="8G"
+
 #Add Dropbox to the path
 export PATH="/home/wichtounet/.dropbox-dist/:$PATH"
 

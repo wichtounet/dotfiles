@@ -29,6 +29,11 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
+" Activate Markdown 
+augroup mkd
+autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:>
+augroup END
+
 " Automatic saving of my files on lost focus
 au FocusLost * :wa
 
