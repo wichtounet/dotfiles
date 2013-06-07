@@ -58,7 +58,7 @@ setopt hist_ignore_all_dups
 # Enable oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
 
-export ZSH_THEME="robbyrussell"
+export ZSH_THEME="agnoster"
 plugins=(autojump git git-flow taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
