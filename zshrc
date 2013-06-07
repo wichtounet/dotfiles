@@ -3,6 +3,9 @@ export REPORTTIME=10
 #Add ccache to the path
 export PATH="/usr/lib64/ccache/bin:$PATH"
 
+export CCACHE_DIR="/var/tmp/ccache"
+export CCACHE_SIZE="8G"
+
 #Add Dropbox to the path
 export PATH="/home/wichtounet/.dropbox-dist/:$PATH"
 
@@ -55,7 +58,7 @@ setopt hist_ignore_all_dups
 # Enable oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
 
-export ZSH_THEME="robbyrussell"
+export ZSH_THEME="agnoster"
 plugins=(autojump git git-flow taskwarrior)
 
 source $ZSH/oh-my-zsh.sh

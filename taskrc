@@ -39,3 +39,5 @@ merge.autopush=no
 merge.default.uri=ftp://u57887167@baptiste-wicht.com/taskwarrior/
 push.default.uri=ftp://u57887167@baptiste-wicht.com/taskwarrior/
 pull.default.uri=ftp://u57887167@baptiste-wicht.com/taskwarrior/
+
+default.priority=L

@@ -2,7 +2,10 @@
 	email = baptiste.wicht@gmail.com
 	name = Baptiste Wicht
 	editor = vim
+
 [core]
 	editor = vim
+	autocrlf = input
+
 [push]
 	default = simple
