@@ -14,6 +14,11 @@ export max_print_line=100000
 
 export LD_PRELOAD=""
 
+# Include stuff thas is local to the computer
+if [[ -r ~/.local.zshrc ]]; then
+	source ~/.local.zshrc
+fi
+
 # Enable colors
 autoload -U colors && colors
 
@@ -62,9 +67,6 @@ export ZSH_THEME="agnoster"
 plugins=(autojump git git-flow taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
-
-#Make should be always multithreaded
-alias make='make -j9'
 
 #Always display the line where grep found something
 alias grep='grep -n'
