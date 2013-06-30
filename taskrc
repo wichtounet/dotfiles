@@ -35,7 +35,7 @@ report.next.columns=id,project,tags,priority,entry.age,urgency,description
 editor=vim
 
 #Allow push/pull through bw.com
-merge.autopush=no
+merge.autopush=ask
 merge.default.uri=ftp://u57887167@baptiste-wicht.com/taskwarrior/
 push.default.uri=ftp://u57887167@baptiste-wicht.com/taskwarrior/
 pull.default.uri=ftp://u57887167@baptiste-wicht.com/taskwarrior/
