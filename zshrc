@@ -8,6 +8,9 @@ export CCACHE_SIZE="8G"
 
 #Add Dropbox to the path
 export PATH="/home/wichtounet/.dropbox-dist/:$PATH"
+export PATH="/home/wichtounet/build/tmsu-0.2.0/bin/:$PATH"
+
+export GOPATH="/home/wichtounet/dev/gocode/"
 
 # Force pdflatex to print with lots of columns
 export max_print_line=100000
