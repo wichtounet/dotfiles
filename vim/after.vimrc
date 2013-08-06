@@ -1,4 +1,4 @@
-set backupdir=~/vimified/tmp/bak/
+set backupdir=~/vimified/tmp/backup/
 
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': [] }
 let g:syntastic_cpp_compiler = 'clang++'
