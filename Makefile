@@ -6,6 +6,7 @@ install-terminator:
 
 install-git: install-terminator
 	-ln -si $(PWD)/.gitconfig ~/.gitconfig
+	-ln -si $(PWD)/.gitignore ~/.gitignore
 
 install-task: install-git
 	-ln -si ${PWD}/.taskrc ~/.taskrc.
