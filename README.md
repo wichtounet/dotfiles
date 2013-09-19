@@ -1,4 +1,4 @@
 dotfiles
 ========
 
-My dot files
+Unix configuration files
