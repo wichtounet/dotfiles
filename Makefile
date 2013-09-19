@@ -1,25 +1,25 @@
-install: install-terminator install-git install-task install-fonts install-zsh install-vim
+install: install-vim
 
 install-terminator:
 	mkdir -p ~/.config/terminator/
 	-ln -si ${PWD}/.config/terminator/config ~/.config/terminator/config
 
-install-git:
-	-ln -si $(PWD)/gitconfig ~/.gitconfig
+install-git: install-terminator
+	-ln -si $(PWD)/.gitconfig ~/.gitconfig
 
-install-task:
-	-ln -si ${PWD}/taskrc ~/.taskrc.
+install-task: install-git
+	-ln -si ${PWD}/.taskrc ~/.taskrc.
 
-install-fonts:
-	-ln -si ${PWD}/fonts ~/.fonts
+install-fonts: install-task
+	-ln -si ${PWD}/.fonts ~/.fonts
 
-install-zsh:
+install-zsh: install-fonts
 	-rm -rf ~/.oh-my-zsh
 	cd
 	wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
-	-ln -si ${PWD}/zshrc ~/.zshrc
+	-ln -si ${PWD}/.zshrc ~/.zshrc
 
-install-vim:
+install-vim: install-zsh
 	-rm -rf ~/.vim ~/vimified ~/.vimrc
 	cd
 	curl -L https://raw.github.com/zaiste/vimified/master/install.sh | sh
