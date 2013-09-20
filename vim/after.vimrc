@@ -4,6 +4,8 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
+inoremap jj <ESC>
+
 map <C-K> :pyf /home/wichtounet/dotfiles/vim/clang-format.py<CR>
 imap <C-K> <ESC>:pyf /home/wichtounet/dotfiles/vim/clang-format.py<CR>i
 
