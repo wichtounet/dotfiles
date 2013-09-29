@@ -26,6 +26,7 @@ install_link ~/.gitconfig $dir/gitconfig
 install_link ~/.taskrc $dir/taskrc
 install_link ~/.zshrc $dir/zshrc
 install_link ~/.fonts $dir/fonts
+install_link ~/.config/terminator/config $dir/.config/terminator/config
 
 install_link ~/vimified/after.vimrc $dir/vim/after.vimrc
 install_link ~/vimified/before.vimrc $dir/vim/before.vimrc
