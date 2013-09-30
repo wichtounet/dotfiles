@@ -116,6 +116,7 @@ function mdless()
   pandoc -s -f markdown -t man $1 | groff -T utf8 -man | less
 }
 
-
 bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
+bindkey -M vicmd 'j' history-beginning-search-forward
+bindkey -M vicmd 'k' history-beginning-search-backward
