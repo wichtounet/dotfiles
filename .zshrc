@@ -1,5 +1,7 @@
 export REPORTTIME=10
 
+export EDITOR="/usr/bin/vim"
+
 #Add ccache to the path
 export PATH="/usr/lib64/ccache/bin:$PATH"
 
@@ -91,7 +93,7 @@ alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 alias wget='wget -c'
 alias df='df -H'
-alias du='du -sh'
+alias du='du -d1 -h'
 alias sorry='sudo $(fc -l -n -1)'
 alias asshole='echo Alright. You do not have to be rude, you know. && sleep 0.8 && sudo $(fc -l -n -1)'
 
