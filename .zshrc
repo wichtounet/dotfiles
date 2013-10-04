@@ -91,7 +91,7 @@ alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 alias wget='wget -c'
 alias df='df -H'
-alias du='du -sh'
+alias du='du -h'
 alias sorry='sudo $(fc -l -n -1)'
 alias asshole='echo Alright. You do not have to be rude, you know. && sleep 0.8 && sudo $(fc -l -n -1)'
 
