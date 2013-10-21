@@ -1,0 +1,20 @@
+search letters
+open_with vlc
+set hidden_filter false
+shell touch rc.conf
+set preview_files
+set preview_files true
+shell vim ~/.config/ranger/rc.conf
+set use_preview_script true
+set hidden_filter true
+shell touch test
+delete
+search test.html
+h
+shell wc -l 
+shell wc -l %f
+shell -w wc -l %f
+shell -t wc -l %f
+
+shell unzip longmode.zip
+open_with q
