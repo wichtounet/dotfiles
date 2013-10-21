@@ -11,6 +11,7 @@ function install_link {
     ln -s $2 $1
 }
 
+install_link ~/.Xdefaults $dir/.Xdefaults
 install_link ~/.gitconfig $dir/.gitconfig
 install_link ~/.taskrc $dir/.taskrc
 install_link ~/.zshrc $dir/.zshrc

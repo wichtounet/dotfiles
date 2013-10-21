@@ -1,0 +1,68 @@
+! Xft settings
+
+Xft.dpi:                    96
+Xft.antialias:              false
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+! Define the font
+
+URxvt*font: xft:Inconsolata for Powerline for Powerline:style=Medium:slant=0:pixelsize=14:minspace=True
+
+! Better colors
+
+URxvt.background:  #002b36
+URxvt.foreground:  #93a1a1
+URxvt.cursorColor: #839496
+
+! Define the palette of colors
+
+URxvt.color0:     #073642
+URxvt.color1:     #dc322f
+URxvt.color2:     #859900
+URxvt.color3:     #b58900
+URxvt.color4:     #268bd2
+URxvt.color5:     #d33682
+URxvt.color6:     #2aa198
+URxvt.color7:     #eee8d5
+URxvt.color8:     #002b36
+URxvt.color9:     #cb4b16
+URxvt.color10:    #586e75
+URxvt.color11:    #657b83
+URxvt.color12:    #839496
+URxvt.color13:    #6c71c4
+URxvt.color14:    #93a1a1
+URxvt.color15:    #fdf6e3
+
+! Configure scrollbar
+
+URxvt*scrollBar:        true
+URxvt*scrollBar_right:  true
+URxvt*scrollstyle:      plain
+URxvt*saveLines:        8192
+
+! Other options
+
+URxvt*buffered:         true
+
+! Extensions
+
+URxvt.perl-ext-common:      default,clipboard,matcher,tabs
+
+! URL Matcher
+
+URxvt.url-launcher:         /usr/bin/chromium
+URxvt.matcher.button:       1
+
+! Copy / Paste
+
+URxvt.keysym.C-C:   perl:clipboard:copy
+URxvt.keysym.C-V:   perl:clipboard:paste
+
+! tabs extension
+
+URxvt.keysym.C-t:   perl:tab-new
+URxvt.keysym.C-w:   perl:tab-kill
+
+URxvt.keysym.C-tab: perl:tab-next
