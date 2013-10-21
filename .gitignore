@@ -1,0 +1,9 @@
+*.swp
+*.swo
+*.so
+*.o
+*~
+.svn
+CMakeCache.txt
+CMakeFiles
+cmake_install.cmake
