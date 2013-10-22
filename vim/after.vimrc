@@ -34,3 +34,5 @@ nnoremap mm :wa<bar>silent make<bar>redraw!<bar>cw<CR>
 " Open and close quick fix window automatically
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
+
+set noexrc
