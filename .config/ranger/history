@@ -18,3 +18,4 @@ shell -t wc -l %f
 
 shell unzip longmode.zip
 open_with q
+open_with chromium
