@@ -65,4 +65,5 @@ URxvt.keysym.C-V:   perl:clipboard:paste
 URxvt.keysym.C-t:   perl:tab-new
 URxvt.keysym.C-w:   perl:tab-kill
 
-URxvt.keysym.C-tab: perl:tab-next
+URxvt.keysym.C-j: perl:tab-next
+URxvt.keysym.C-k: perl:tab-previous
