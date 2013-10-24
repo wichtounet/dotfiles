@@ -35,4 +35,9 @@ nnoremap mm :wa<bar>silent make<bar>redraw!<bar>cw<CR>
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
+" Disable reading of .vimrc in current directory
 set noexrc
+
+" Set a timeout for keybindings
+set timeout
+set timeoutlen=1000
