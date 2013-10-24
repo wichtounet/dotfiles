@@ -78,6 +78,7 @@ alias gca='git commit -a'
 alias gcadd='git add -A'
 
 # Misc aliases
+alias lla='ls -la'
 alias mkdir='mkdir -pv'
 alias diff='colordiff'
 alias mounts='mount |column -t'
