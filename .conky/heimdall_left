@@ -60,8 +60,14 @@ ${font Arial:bold:size=10}${color 7A5ADA}System ${hr 2}$color$font
 Kernel: $alignr $kernel
 Hostname: $alignr $nodename
 Arch: $alignr $machine
-Last sync: $alignr ${execi 180 cat /usr/portage/metadata/timestamp.chk}
 Uptime: $alignr $uptime
+
+${font Arial:bold:size=10}${color 7A5ADA}Gentoo ${hr 2}$color$font
+
+Last sync: $alignr ${execi 300 cat /usr/portage/metadata/timestamp.chk}
+Installed Packages: $alignr ${execi 300 EIX_LIMIT=0 eix --installed --only-names | wc -l}
+World Packages: $alignr ${execi 300 EIX_LIMIT=0 eix --selected --only-names | wc -l}
+System Packages: $alignr ${execi 300 EIX_LIMIT=0 eix --system --only-names | wc -l}
 
 ${font Arial:bold:size=10}${color 7A5ADA}Hardware ${color 7A5ADA}${hr 2}$color$font
 
