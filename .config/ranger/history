@@ -15,7 +15,9 @@ shell wc -l
 shell wc -l %f
 shell -w wc -l %f
 shell -t wc -l %f
-
 shell unzip longmode.zip
 open_with q
 open_with chromium
+
+rename logo asdf.gif
+open_with feh

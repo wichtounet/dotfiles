@@ -4,6 +4,7 @@ export EDITOR="/usr/bin/vim"
 
 #Add ccache to the path
 export PATH="/usr/lib64/ccache/bin:$PATH"
+export PATH="/home/wichtounet/opt/cross/bin:$PATH"
 
 export CCACHE_DIR="/var/tmp/ccache"
 export CCACHE_SIZE="8G"
