@@ -14,7 +14,6 @@ URxvt*font: xft:Inconsolata for Powerline for Powerline:style=Medium:slant=0:pix
 URxvt*.transparent: true
 URxvt*.shading: 25
 
-
 ! Better colors
 
 URxvt.background:  #002B36
