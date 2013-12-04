@@ -3,14 +3,16 @@ export REPORTTIME=10
 
 export EDITOR="/usr/bin/vim"
 
-#Configure CCache
-export CCACHE_DIR="/var/tmp/ccache"
-export CCACHE_SIZE="8G"
-
 #Complete the path
 export PATH="/usr/lib64/ccache/bin:$PATH"
 export PATH="/home/wichtounet/build/tmsu-0.2.0/bin/:$PATH"
 export PATH="/home/wichtounet/opt/cross/bin/:$PATH"
+
+#Configure CCache
+export CCACHE_DIR="/var/tmp/ccache"
+export CCACHE_SIZE="8G"
+
+export GOPATH="/home/wichtounet/dev/gocode/"
 
 # Force pdflatex to print with lots of columns
 export max_print_line=100000
@@ -80,6 +82,7 @@ alias gca='git commit -a'
 alias gcadd='git add -A'
 
 # Misc aliases
+alias lla='ls -la'
 alias mkdir='mkdir -pv'
 alias diff='colordiff'
 alias mounts='mount |column -t'

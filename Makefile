@@ -1,10 +1,12 @@
 install: install-vim
 
-install-terminator:
-	mkdir -p ~/.config/terminator/
-	-ln -si ${PWD}/.config/terminator/config ~/.config/terminator/config
+install-config:
+	rm -rf ~/.config/terminator
+	rm -rf ~/.config/ranger
+	-ln -si ${PWD}/.config/terminator ~/.config/terminator
+	-ln -si ${PWD}/.config/ranger ~/.config/ranger
 
-install-git: install-terminator
+install-git: install-config
 	-ln -si $(PWD)/.gitconfig ~/.gitconfig
 	-ln -si $(PWD)/.gitignore ~/.gitignore
 
@@ -29,4 +31,4 @@ install-vim: install-zsh
 	-ln -si ${PWD}/vim/local.vimrc ~/vimified/local.vimrc
 	vim +BundleInstall +qall
 
-.PHONY: install install-terminator install-git install-task install-fonts install-zsh install-vim
+.PHONY: install install-config install-git install-task install-fonts install-zsh install-vim

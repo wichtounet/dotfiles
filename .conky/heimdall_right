@@ -1,0 +1,109 @@
+own_window yes
+own_window_type normal
+own_window_argb_visual yes
+own_window_argb_value 255
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+background no
+font Terminus:size=8
+override_utf8_locale yes
+use_xft yes
+xftfont 123:size=7
+xftalpha 0.8
+update_interval 2.0
+total_run_times 0
+double_buffer yes
+minimum_size 220 5
+maximum_width 300
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color white
+default_shade_color black
+alignment top_right
+gap_x 1932
+gap_y 35
+no_buffers yes
+cpu_avg_samples 2
+uppercase yes
+
+lua_load ~/.conky/cpu_rings.lua
+lua_draw_hook_pre cpu_rings
+
+TEXT
+${font Arial:bold:size=10}${color 7A5ADA}System Load ${hr 2}$color$font
+
+${color FFFFFF}${goto 5}${cpu cpu1}%
+${color 7A5ADA}${goto 5}CPU 1
+${color FFFFFF}${goto 55}${voffset -22}${cpu cpu2}%
+${color 7A5ADA}${goto 55}CPU 2
+${color FFFFFF}${goto 105}${voffset -22}${cpu cpu3}%
+${color 7A5ADA}${goto 105}CPU 3
+${color FFFFFF}${goto 155}${voffset -22}${cpu cpu4}%
+${color 7A5ADA}${goto 155}CPU 4
+${color FFFFFF}${goto 5}${voffset 35}${cpu cpu5}%
+${color 7A5ADA}${goto 5}CPU 5
+${color FFFFFF}${goto 55}${voffset -22}${cpu cpu6}%
+${color 7A5ADA}${goto 55}CPU 6
+${color FFFFFF}${goto 105}${voffset -22}${cpu cpu7}%
+${color 7A5ADA}${goto 105}CPU 7
+${color FFFFFF}${goto 155}${voffset -22}${cpu cpu8}%
+${color 7A5ADA}${goto 155}CPU 8$color
+
+${voffset 25}${cpugraph 20}
+Load: $alignr $loadavg
+Processes: $alignr $processes
+Running: $alignr $running_processes
+
+RAM: $alignr $mem/$memmax
+${membar 3}
+
+${font Arial:bold:size=10}${color 7A5ADA}Top ${hr 2}$color$font
+
+Name $alignr PID     CPU%   MEM%
+${color #ddaa00} ${top name 1} $alignr ${top pid 1} ${top cpu 1} ${top mem 1}$color
+ ${top name 2} $alignr ${top pid 2} ${top cpu 2} ${top mem 2}
+ ${top name 3} $alignr ${top pid 3} ${top cpu 3} ${top mem 3}
+ ${top name 4} $alignr ${top pid 4} ${top cpu 4} ${top mem 4}
+ ${top name 5} $alignr ${top pid 5} ${top cpu 5} ${top mem 5}
+
+Mem usage$color
+${color #ddaa00} ${top_mem name 1} $alignr ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}$color
+ ${top_mem name 2} $alignr ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
+ ${top_mem name 3} $alignr ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
+ ${top_mem name 4} $alignr ${top_mem pid 4} ${top_mem cpu 4} ${top_mem mem 4}
+ ${top_mem name 5} $alignr ${top_mem pid 5} ${top_mem cpu 5} ${top_mem mem 5}
+
+${font Arial:bold:size=10}${color 7A5ADA}Temperature ${hr 2}$color$font
+
+CPU: ${alignr}${execi 15 sensors | grep 'Physical id 0' | cut -c 15-22}°C
+ATI GPU: ${alignr}${execi 15 aticonfig --odgt | grep 'Sensor 0' | cut -c 42-47}°C
+
+${font Arial:bold:size=10}${color 7A5ADA}HDD I/O ${hr 2}$color$font
+
+ Write: $alignr $diskio_write
+${diskiograph_write /dev/sda}
+ Read: $alignr $diskio_read
+${diskiograph_read /dev/sda}
+
+${font Arial:bold:size=10}${color 7A5ADA}HDD Usage ${hr 2}$color$font
+
+ROOT: $alignr ${fs_free /} / ${fs_size /}
+${fs_bar 3 /}
+BOOT: $alignr ${fs_free /boot} / ${fs_size /boot}
+${fs_bar 3 /boot}
+DATA: $alignr ${fs_free /data} / ${fs_size /data}
+${fs_bar 3 /data}
+
+${font Arial:bold:size=10}${color 7A5ADA}Network ${hr 2}$color$font
+
+Hostname: $alignr $nodename
+Local IP: $alignr ${addr eth0}
+Public IP: $alignr ${exec wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
+
+ Down: $alignr ${downspeed eth0}
+${downspeedgraph eth0}
+ Up: $alignr ${upspeed eth0}
+${upspeedgraph eth0}
