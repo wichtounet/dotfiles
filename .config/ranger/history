@@ -21,3 +21,5 @@ open_with chromium
 
 rename logo asdf.gif
 open_with feh
+cd /mnt/various/microsoft_photos/Movies
+search krysta
