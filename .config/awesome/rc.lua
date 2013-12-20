@@ -41,6 +41,9 @@ end
 -- Themes define colours, icons, and wallpapers
 beautiful.init(awful.util.getdir("config") .. "/themes/default/theme.lua")
 
+-- Volume control
+local APW = require("apw/widget")
+
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
 editor = "vim"
@@ -117,6 +120,9 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
+
+spacer = wibox.widget.textbox()
+spacer.text = " a "
 
 -- {{{ Wibox
 -- Create a textclock widget
@@ -233,7 +239,10 @@ for s = 1, screen.count() do
     right_layout:add(cpuwidget)
     right_layout:add(memwidgettext)
     right_layout:add(memwidget)
+    right_layout:add(spacer)
     right_layout:add(battery)
+    right_layout:add(spacer)
+    right_layout:add(APW)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
@@ -481,10 +490,15 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
--- Battery status timer
+-- Auto update the battery widget
 batteryTimer = timer({timeout = 15})
 batteryTimer:connect_signal("timeout", function()
   battery:set_markup(getBatteryStatus())
 end)
 batteryTimer:start()
 battery:set_markup(getBatteryStatus())
+
+-- Auto update the volume widget
+APWTimer = timer({ timeout = 1 }) -- set update interval in s
+APWTimer:connect_signal("timeout", APW.Update)
+APWTimer:start()
