@@ -12,6 +12,9 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local vicious = require("vicious")
 
+-- Get the hostname, will be used to activate some features
+hostname = io.popen("uname -n"):read()
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -128,13 +131,15 @@ spacer.text = " a "
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
 
--- Create a battery widget
-battery = wibox.widget.textbox()
-function getBatteryStatus()
-   local fd= io.popen("/home/wichtounet/.conky/battery.sh")
-   local status = fd:read()
-   fd:close()
-   return status
+if hostname == "freya" then
+    -- Create a battery widget
+    battery = wibox.widget.textbox()
+    function getBatteryStatus()
+        local fd= io.popen("/home/wichtounet/.conky/battery.sh")
+        local status = fd:read()
+        fd:close()
+        return status
+    end
 end
 
 cpuwidgettext = wibox.widget.textbox()
@@ -239,9 +244,11 @@ for s = 1, screen.count() do
     right_layout:add(cpuwidget)
     right_layout:add(memwidgettext)
     right_layout:add(memwidget)
-    right_layout:add(spacer)
-    right_layout:add(battery)
-    right_layout:add(spacer)
+    if hostname == "freya" then
+        right_layout:add(spacer)
+        right_layout:add(battery)
+        right_layout:add(spacer)
+    end
     right_layout:add(APW)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
@@ -490,13 +497,15 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
--- Auto update the battery widget
-batteryTimer = timer({timeout = 15})
-batteryTimer:connect_signal("timeout", function()
-  battery:set_markup(getBatteryStatus())
-end)
-batteryTimer:start()
-battery:set_markup(getBatteryStatus())
+if hostname == "freya" then
+    -- Auto update the battery widget
+    batteryTimer = timer({timeout = 15})
+    batteryTimer:connect_signal("timeout", function()
+        battery:set_markup(getBatteryStatus())
+    end)
+    batteryTimer:start()
+    battery:set_markup(getBatteryStatus())
+end
 
 -- Auto update the volume widget
 APWTimer = timer({ timeout = 1 }) -- set update interval in s
