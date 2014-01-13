@@ -28,6 +28,10 @@ nnoremap tj  :tabnext<CR>
 nnoremap tk  :tabprev<CR>
 nnoremap tl  :tablast<CR>
 
+" Should improve quickfix, but does not seems to work as expected
+set switchbuf=
+nnoremap mc :cclose<CR>:q<CR>
+
 " Make fast
 nnoremap mm :wa<bar>silent make<bar>redraw!<bar>cw<CR>
 
