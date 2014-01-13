@@ -12,6 +12,9 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local vicious = require("vicious")
 
+-- Get the hostname, will be used to activate some features
+hostname = io.popen("uname -n"):read()
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -118,9 +121,23 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
+spacer = wibox.widget.textbox()
+spacer.text = " a "
+
 -- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
+
+if hostname == "freya" then
+    -- Create a battery widget
+    battery = wibox.widget.textbox()
+    function getBatteryStatus()
+        local fd= io.popen("/home/wichtounet/.conky/battery.sh")
+        local status = fd:read()
+        fd:close()
+        return status
+    end
+end
 
 -- Create CPU and Memory widget
 cpuwidgettext = wibox.widget.textbox()
@@ -225,6 +242,11 @@ for s = 1, screen.count() do
     right_layout:add(cpuwidget)
     right_layout:add(memwidgettext)
     right_layout:add(memwidget)
+    if hostname == "freya" then
+        right_layout:add(spacer)
+        right_layout:add(battery)
+        right_layout:add(spacer)
+    end
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
@@ -461,3 +483,13 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+if hostname == "freya" then
+    -- Auto update the battery widget
+    batteryTimer = timer({timeout = 15})
+    batteryTimer:connect_signal("timeout", function()
+        battery:set_markup(getBatteryStatus())
+    end)
+    batteryTimer:start()
+    battery:set_markup(getBatteryStatus())
+end

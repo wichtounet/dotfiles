@@ -1,0 +1,3 @@
+[submodule ".config/awesome/apw"]
+	path = .config/awesome/apw
+	url = https://github.com/mokasin/apw.git
