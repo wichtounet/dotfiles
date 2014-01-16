@@ -14,6 +14,9 @@ export CCACHE_SIZE="8G"
 
 export GOPATH="/home/wichtounet/dev/gocode/"
 
+export JAVA_HOME="/etc/java-config-2/current-system-vm"
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # Force pdflatex to print with lots of columns
 export max_print_line=100000
 

@@ -14,7 +14,6 @@ URxvt*font: xft:Inconsolata for Powerline for Powerline:style=Medium:slant=0:pix
 URxvt*.transparent: true
 URxvt*.shading: 25
 
-
 ! Better colors
 
 URxvt.background:  #002B36
@@ -53,7 +52,7 @@ URxvt*buffered:         true
 
 ! Extensions
 
-URxvt.perl-ext-common:      default,clipboard,matcher,tabs
+URxvt.perl-ext-common:      default,clipboard,matcher
 
 ! URL Matcher
 
@@ -64,11 +63,3 @@ URxvt.matcher.button:       1
 
 URxvt.keysym.C-C:   perl:clipboard:copy
 URxvt.keysym.C-V:   perl:clipboard:paste
-
-! tabs extension
-
-URxvt.keysym.C-t:   perl:tab-new
-URxvt.keysym.C-w:   perl:tab-kill
-
-URxvt.keysym.C-j: perl:tab-next
-URxvt.keysym.C-k: perl:tab-previous
