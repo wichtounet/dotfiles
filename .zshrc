@@ -1,11 +1,14 @@
+#Make sure never to forget to use time on long running functions
 export REPORTTIME=10
 
 export EDITOR="/usr/bin/vim"
 
-#Add ccache to the path
+#Complete the path
 export PATH="/usr/lib64/ccache/bin:$PATH"
-export PATH="/home/wichtounet/opt/cross/bin:$PATH"
+export PATH="/home/wichtounet/build/tmsu-0.2.0/bin/:$PATH"
+export PATH="/home/wichtounet/opt/cross/bin/:$PATH"
 
+#Configure CCache
 export CCACHE_DIR="/var/tmp/ccache"
 export CCACHE_SIZE="8G"
 

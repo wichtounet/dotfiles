@@ -34,6 +34,12 @@ nnoremap mc :cclose<CR>:q<CR>
 
 " Make fast
 nnoremap mm :wa<bar>silent make<bar>redraw!<bar>cw<CR>
+nnoremap mc :wa<bar>silent make clean<bar>redraw!<bar>cw<CR>
+
+" Improve navigation in quick fix window
+nnoremap cn :cnext<CR>
+nnoremap cp :cprevious<CR>
+nnoremap cc :cclose<CR>
 
 " Open and close quick fix window automatically
 autocmd QuickFixCmdPost [^l]* nested cwindow
@@ -45,3 +51,7 @@ set noexrc
 " Set a timeout for keybindings
 set timeout
 set timeoutlen=1000
+
+let g:ctrlp_custom_ignore = {
+    \ 'file': '\v\.(cpp\.o|cpp\.d)$'
+    \}
