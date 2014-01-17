@@ -69,7 +69,7 @@ setopt hist_ignore_all_dups
 export ZSH=$HOME/.oh-my-zsh
 
 export ZSH_THEME="agnoster"
-plugins=(autojump git git-flow taskwarrior)
+plugins=(autojump git git-flow taskwarrior ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,7 +84,6 @@ alias gcadd='git add -A'
 # Misc aliases
 alias lla='ls -la'
 alias mkdir='mkdir -pv'
-alias diff='colordiff'
 alias mounts='mount |column -t'
 alias ports='netstat -tulanp'
 alias rm='rm -I --preserve-root'
