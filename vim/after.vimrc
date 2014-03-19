@@ -8,6 +8,7 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 " ESC insert mode with jj
 inoremap jj <ESC>
 
+
 " Disable folding
 set nofoldenable
 
@@ -32,8 +33,24 @@ nnoremap tl  :tablast<CR>
 set switchbuf=
 nnoremap mc :cclose<CR>:q<CR>
 
+" Ease the use fugitive
+nnoremap ss :Gstatus<CR>
+
+" Improve navigation between windows
+noremap rj <C-w>j
+noremap rk <C-w>k
+noremap rh <C-w>h
+noremap rl <C-w>l
+noremap rc <C-w>c
+noremap rs <C-w>s
+noremap ro <C-w>o
+noremap r<SPACE> :split<CR>
+noremap r<CR> :vsplit<CR>
+noremap r <C-w>
+
 " Make fast
 nnoremap mm :wa<bar>silent make<bar>redraw!<bar>cw<CR>
+nnoremap mf :wa<bar>silent make<bar>redraw!
 nnoremap mc :wa<bar>silent make clean<bar>redraw!<bar>cw<CR>
 
 " Improve navigation in quick fix window
@@ -50,8 +67,20 @@ set noexrc
 
 " Set a timeout for keybindings
 set timeout
-set timeoutlen=1000
+set timeoutlen=750
+
+" ctrlp {
 
 let g:ctrlp_custom_ignore = {
-    \ 'file': '\v\.(cpp\.o|cpp\.d)$'
+    \ 'file': '\v\.(cpp\.o|cpp\.d|aux|bbg|bbl)$'
     \}
+
+let g:ctrlp_user_command = {
+    \ 'types': {
+    \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+    \ },
+    \ 'fallback': 'find %s -type f'
+    \ }
+
+"}
