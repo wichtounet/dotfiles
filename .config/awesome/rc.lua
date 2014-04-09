@@ -329,7 +329,9 @@ globalkeys = awful.util.table.join(
               end),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end),
-    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end)
+    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
+
+    awful.key({        }, "Print", function () awful.util.spawn_with_shell("DATE=`date +%d%m%Y_%H%M%S`; xsnap -nogui -file $HOME/Pictures/xsnap$DATE") end)
 )
 
 clientkeys = awful.util.table.join(
