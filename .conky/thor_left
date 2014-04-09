@@ -1,0 +1,85 @@
+own_window yes
+own_window_type desktop
+own_window_argb_visual yes
+own_window_argb_value 255
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+background no
+override_utf8_locale yes
+use_xft yes
+xftfont 123:size=7
+xftalpha 0.8
+update_interval 1.0
+total_run_times 0
+double_buffer yes
+minimum_size 220 1000
+maximum_width 300
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color white
+default_shade_color black
+alignment top_left
+gap_x 1932
+gap_y 35
+no_buffers yes
+cpu_avg_samples 2
+uppercase yes
+
+lua_load ~/.conky/clock.lua
+lua_draw_hook_pre clock
+
+TEXT
+${font Arial:bold:size=10}${color 7A5ADA}Time ${color 7A5ADA}${hr 2}$color$font
+${voffset 8}${color 7A5ADA}${font ubuntu:size=16}${time %A}${font}${voffset -8}${alignr 50}${color FFFFFF}${font ubuntu:size=38}${time %e}${font}
+${color FFFFFF}${voffset -30}${color FFFFFF}${font ubuntu:size=18}${time %b}${font}${voffset -3} ${color FFFFFF}${font ubuntu:size=20}${time %Y}${font}${color 7A5ADA}${hr}
+${image ~/.conky/gentoo-logo.png -p 80,125 -s 80x80}
+
+${voffset 120}
+
+${font Arial:bold:size=10}${color 7A5ADA}Weather ${color 7A5ADA}${hr 2}$color$font
+
+${execi 300 curl -s "http://weather.yahooapis.com/forecastrss?w=782490&u=c" -o ~/.cache/weather.xml}${font :size=15}${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "city=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}, ${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "country=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font}
+${font :size=54}${alignr}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°${font}${voffset -20}
+${execi 300 cp -f ~/.conky/images/$(grep "yweather:condition" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*").png ~/.cache/weather.png}${image ~/.cache/weather.png -p 0,305 -s 60x60}
+
+${font :bold:size=12}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | tr '[a-z]' '[A-Z]'}$font
+
+${image ~/.conky/images/wind.png -p 75,300 -s 15x15}${goto 100}${voffset -95}${execi 300 grep "yweather:wind" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${execi 300 grep "yweather:units" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
+
+${image ~/.conky/images/humidity.png -p 75,325 -s 15x15}${goto 100}${voffset 5}${execi 300 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}%
+${voffset 60}${execi 300 cp -f ~/.conky/images/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1').png ~/.cache/weather-today.png}${image ~/.cache/weather-today.png -p 0,395 -s 30x30}${execi 300 cp -f ~/.conky/images/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2').png ~/.cache/weather-tomorrow.png}${image ~/.cache/weather-tomorrow.png -p 130,395 -s 30x30}${voffset -10}
+
+${goto 60}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1' | tr '[a-z]' '[A-Z]'}${goto 190}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2' | tr '[a-z]' '[A-Z]'}
+${goto 60}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}° ${color6}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}°${color}${goto 190}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}° ${color6}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}°${color}${voffset 15}
+
+${font Arial:bold:size=10}${color 7A5ADA}System ${hr 2}$color$font
+
+Kernel: $alignr $kernel
+Hostname: $alignr $nodename
+Arch: $alignr $machine
+Uptime: $alignr $uptime
+
+${font Arial:bold:size=10}${color 7A5ADA}Gentoo ${hr 2}$color$font
+
+Last sync: $alignr ${execi 300 cat /usr/portage/metadata/timestamp.chk}
+Installed Packages: $alignr ${execi 300 EIX_LIMIT=0 eix --installed --only-names | wc -l}
+World Packages: $alignr ${execi 300 EIX_LIMIT=0 eix --selected --only-names | wc -l}
+System Packages: $alignr ${execi 300 EIX_LIMIT=0 eix --system --only-names | wc -l}
+
+${font Arial:bold:size=10}${color 7A5ADA}Hardware ${color 7A5ADA}${hr 2}$color$font
+
+CPU: $alignr ${exec  cat /proc/cpuinfo | grep 'model name' | head -1 | cut -c14-}
+Memory: $alignr $memmax
+GPU: $alignr NVidia Geforce GTX 760
+
+${font Arial:bold:size=10}${color 7A5ADA}Now playing ${color 7A5ADA}${hr 2}$color$font
+
+Artist: $alignr ${execi 5 cmus-remote -Q 2>/dev/null | grep ' artist ' | cut -d " " -f 3-}
+Album: $alignr ${execi 5 cmus-remote -Q 2>/dev/null | grep ' album ' | cut -d " " -f 3-}
+Song: $alignr ${execi 5 cmus-remote -Q 2>/dev/null | grep ' title ' | cut -d " " -f 3-}
+
+Progress:
+${execibar 4 echo "(`cmus-remote -Q 2>/dev/null | /usr/bin/zgrep 'position ' | cut -c 10-` / `cmus-remote -Q 2>/dev/null | /usr/bin/zgrep 'duration ' | cut -c 10-`)*100.0" | bc -l | cut -d . -f 1}
