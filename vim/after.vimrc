@@ -41,6 +41,9 @@ nnoremap cn :cnext<CR>
 nnoremap cp :cprevious<CR>
 nnoremap cc :cclose<CR>
 
+nnoremap M :next<CR>
+nnoremap P :previous<CR>
+
 " Open and close quick fix window automatically
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
