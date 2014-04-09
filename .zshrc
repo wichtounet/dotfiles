@@ -20,8 +20,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # Force pdflatex to print with lots of columns
 export max_print_line=100000
 
-export LD_PRELOAD=""
-
 # Include stuff thas is local to the computer
 if [[ -r ~/.local.zshrc ]]; then
 	source ~/.local.zshrc
