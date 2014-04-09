@@ -8,7 +8,6 @@ shell vim ~/.config/ranger/rc.conf
 set use_preview_script true
 set hidden_filter true
 shell touch test
-delete
 search test.html
 h
 shell wc -l 
@@ -16,10 +15,28 @@ shell wc -l %f
 shell -w wc -l %f
 shell -t wc -l %f
 shell unzip longmode.zip
-open_with q
 open_with chromium
-
 rename logo asdf.gif
 open_with feh
 cd /mnt/various/microsoft_photos/Movies
 search krysta
+searchdown
+search down
+search CM
+shell
+delete
+open_with vim
+
+mkdir admin
+cut 
+mo
+open_with 
+bulkrename 
+rename 
+unzip
+shell unicode_startq
+extract
+open_withk
+open_with
+open_with k
+open_with q

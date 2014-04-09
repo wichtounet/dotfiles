@@ -10,7 +10,7 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=/home/wichtounet/Dropbox/Perso/task_data/
+#data.location=/home/wichtounet/Dropbox/Perso/task_data/
 
 # Color theme (uncomment one to use)
 #include /usr/share/doc/task/rc/light-16.theme
@@ -35,9 +35,14 @@ report.next.columns=id,project,tags,priority,entry.age,urgency,description
 editor=vim
 
 #Allow push/pull through bw.com
-merge.autopush=ask
-merge.default.uri=ftp://u57887167@baptiste-wicht.com/taskwarrior/
-push.default.uri=ftp://u57887167@baptiste-wicht.com/taskwarrior/
-pull.default.uri=ftp://u57887167@baptiste-wicht.com/taskwarrior/
+#merge.autopush=ask
+#merge.default.uri=ftp://u57887167@baptiste-wicht.com/taskwarrior/
+#push.default.uri=ftp://u57887167@baptiste-wicht.com/taskwarrior/
+#pull.default.uri=ftp://u57887167@baptiste-wicht.com/taskwarrior/
 
 default.priority=L
+taskd.certificate=\/home\/wichtounet\/.task\/wichtounet.cert.pem
+taskd.key=\/home\/wichtounet\/.task\/wichtounet.key.pem
+taskd.ca=\/home\/wichtounet\/.task\/ca.cert.pem
+taskd.server=baptiste-wicht.ch:33322
+taskd.credentials=wicht\/wichtounet\/1a9cf223-4925-4b2a-acc0-33e611f3847c
