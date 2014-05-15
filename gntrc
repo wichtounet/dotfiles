@@ -1,0 +1,17 @@
+[general]
+shadow = 0
+mouse = 0
+wm = /usr/lib/gnt/irssi.so
+remember_position = 1
+small-button = true
+
+[GntWM::binding]
+a-j = window-next
+a-k = window-prev
+
+[GntTree::binding]
+j = move-down
+k = move-up
+
+[GntTree::remap]
+l = \r
