@@ -30,7 +30,6 @@ open_with vim
 mkdir admin
 cut 
 mo
-open_with 
 bulkrename 
 rename 
 unzip
@@ -40,3 +39,10 @@ open_withk
 open_with
 open_with k
 open_with q
+open_with 
+rename FDR.American.Badass.2012.1080p
+rename Rocknrolla.2008.1080p
+shell rm *.nfo
+shell rm *.sfv
+open_with hh
+shell mkdir movies
