@@ -3,9 +3,9 @@ export REPORTTIME=10
 
 export EDITOR="/usr/bin/vim"
 
-export LD_LIBRARY_PATH="/home/wichtounet/install/lib/:$LD_LIBRARY_PATH"
-
 source /usr/bin/virtualenvwrapper_lazy.sh
+
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/wichtounet/build/modular-boost/lib"
 
 #Complete the path
 export PATH="/usr/lib64/ccache/bin:$PATH"
@@ -129,3 +129,5 @@ bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -M vicmd 'j' history-beginning-search-forward
 bindkey -M vicmd 'k' history-beginning-search-backward
+
+source $(type virtualenvwrapper_lazy.sh)

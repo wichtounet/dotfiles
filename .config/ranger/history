@@ -10,7 +10,7 @@ set hidden_filter true
 shell touch test
 search test.html
 h
-shell wc -l 
+shell wc -l
 shell wc -l %f
 shell -w wc -l %f
 shell -t wc -l %f
@@ -27,11 +27,10 @@ shell
 delete
 
 mkdir admin
-cut 
+cut
 mo
-open_with 
-bulkrename 
-rename 
+bulkrename
+rename
 unzip
 shell unicode_startq
 extract
