@@ -25,7 +25,6 @@ search down
 search CM
 shell
 delete
-open_with vim
 
 mkdir admin
 cut 
@@ -40,3 +39,4 @@ open_withk
 open_with
 open_with k
 open_with q
+open_with vim

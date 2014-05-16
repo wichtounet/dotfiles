@@ -3,6 +3,10 @@ export REPORTTIME=10
 
 export EDITOR="/usr/bin/vim"
 
+export LD_LIBRARY_PATH="/home/wichtounet/install/lib/:$LD_LIBRARY_PATH"
+
+source /usr/bin/virtualenvwrapper_lazy.sh
+
 #Complete the path
 export PATH="/usr/lib64/ccache/bin:$PATH"
 export PATH="/home/wichtounet/build/tmsu-0.2.0/bin/:$PATH"
