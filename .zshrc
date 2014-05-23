@@ -1,9 +1,13 @@
 #Make sure never to forget to use time on long running functions
 export REPORTTIME=10
 
+# Make sure the correct editor is used
 export EDITOR="/usr/bin/vim"
 
-source /usr/bin/virtualenvwrapper_lazy.sh
+# Python virtual envs
+if [[ -r /usr/bin/virtualenvwrapper_lazy.sh ]]; then
+    source /usr/bin/virtualenvwrapper_lazy.sh
+fi
 
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/wichtounet/build/modular-boost/lib"
 
@@ -129,5 +133,3 @@ bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -M vicmd 'j' history-beginning-search-forward
 bindkey -M vicmd 'k' history-beginning-search-backward
-
-source $(type virtualenvwrapper_lazy.sh)
