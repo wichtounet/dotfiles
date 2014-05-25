@@ -1,0 +1,101 @@
+ignore *
+unignore From To Cc Bcc Subject Date Organization X-Label X-Mailer User-Agent X-GM-LABELS X-Gm-Labels X-Labels
+
+# Gmail configuration
+set from = "baptiste.wicht@gmail.com"
+set realname = "Baptiste Wicht"
+
+# IMAP Configuration
+set imap_user = "baptiste.wicht@gmail.com"
+
+# SMTP Connections
+set smtp_url = "smtp://baptistewicht@smtp.gmail.com:587/"
+
+# Get passwords
+source password.muttrc 
+
+# Gmail more configuration
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "imaps://imap.gmail.com:993/INBOX"
+set postponed = "imaps://imap.gmail.com:993/[Gmail]/Drafts"
+set trash = "imaps://imap.gmail.com:993/[Gmail]/Trash"
+
+# Set charset
+set send_charset="utf-8"
+
+# Colors
+source colors.muttrc
+
+# Faster mail checking
+set timeout = 30
+set mail_check = 10
+
+# Beeps on new messages
+set beep_new
+# Start vim with correct options
+set editor='vim + -c "set textwidth=72" -c "set wrap"'
+
+# Display labels
+set index_format="%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?(%.20Y) ?%s"
+#set index_format = "%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?{%.20Y} ?%s"
+#set index_format="%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %20Y %s"
+#set index_format="%4C %Z %{%b %d} %-15.15L (%4l) [%y] %s"
+#set index_format="%4C %Z %[!%b %d %Y] %-17.17F (%3l) %s"
+
+# Cache folders
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+
+# Add folders to mailboxes
+set imap_check_subscribed = yes
+
+# Always display pager in top of the mails
+set pager_index_lines=8
+
+# Always display sidebar
+set sidebar_visible = yes
+set sidebar_width = 35
+
+# Mark folders with unread mails in yellow
+color sidebar_new yellow default
+
+# Better bindings for the sidebar
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+
+# Faster folder switch
+set sleep_time = 0
+
+# Auto view HTML messages
+alternative_order text/plain text/html *
+auto_view text/html
+
+# Configure connections
+set move = no
+set copy = no
+set imap_keepalive = 900
+
+# Discussions view
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+
+# GMail like view
+macro index,pager ut <tag-thread><limit>~T<enter><tag-thread> "show only current thread"
+macro index,pager ua <limit>all<enter> "show everything"
+
+# Labels
+macro index y "<enter-command>set editor=\"~/.mutt/editlabel append\"\n\
+<edit><sync-mailbox><next-undeleted>\
+<enter-command>set editor=vim\n" "Append label"
+macro pager y "<enter-command>set editor=\"~/.mutt/editlabel append\"\n\
+<edit><sync-mailbox><next-undeleted>\
+<enter-command>set editor=vim\n" "Append label"
+macro index Y "<enter-command>set editor=\"~/.mutt/editlabel menu\"\n\
+<edit><sync-mailbox><next-undeleted>\
+<enter-command>set editor=vim\n" "Edit labels"
+macro pager Y "<enter-command>set editor=\"~/.mutt/editlabel menu\"\n\
+<edit><sync-mailbox><next-undeleted>\
+<enter-command>set editor=vim\n" "Edit labels"
+macro index \Cy "<limit>~y " "Limit view to label"
