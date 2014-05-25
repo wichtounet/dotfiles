@@ -46,3 +46,4 @@ shell rm *.nfo
 shell rm *.sfv
 open_with hh
 shell mkdir movies
+findjl
