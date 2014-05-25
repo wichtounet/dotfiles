@@ -24,7 +24,7 @@ set trash = "imaps://imap.gmail.com:993/[Gmail]/Trash"
 set send_charset="utf-8"
 
 # Colors
-source colors.muttrc
+source .colors.muttrc
 
 # Faster mail checking
 set timeout = 30
