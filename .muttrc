@@ -12,7 +12,7 @@ set imap_user = "baptiste.wicht@gmail.com"
 set smtp_url = "smtp://baptistewicht@smtp.gmail.com:587/"
 
 # Get passwords
-source password.muttrc 
+source .password.muttrc 
 
 # Gmail more configuration
 set folder = "imaps://imap.gmail.com:993"
