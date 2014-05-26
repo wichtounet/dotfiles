@@ -100,7 +100,7 @@ ${fs_bar 3 /data}
 ${font Arial:bold:size=10}${color 7A5ADA}Network ${hr 2}$color$font
 
 Hostname: $alignr $nodename
-Local IP: $alignr ${addr eth0}
+Local IP: $alignr ${addr eno1}
 Public IP: $alignr ${exec wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
 
  Down: $alignr ${downspeed eth0}
