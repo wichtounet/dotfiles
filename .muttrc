@@ -69,6 +69,9 @@ bind index l display-message
 bind pager J next-line
 bind pager K previous-line
 
+# Edit MIME types
+bind attach e edit-type
+
 # Faster folder switch
 set sleep_time = 0
 
@@ -94,3 +97,8 @@ macro index "#" '<sync-mailbox><change-folder>^<enter>' "Sync mailbox".
 
 # Simple macro to limit view to a label
 macro index Cy " ~y " "Limit view to label"
+
+# Alias auto generation
+set display_filter = ~/.mutt/autoalias
+source ~/.aliases.muttrc
+set alias_file=~/.aliasees.muttrc
