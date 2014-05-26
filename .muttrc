@@ -1,3 +1,4 @@
+# Headers configuration
 ignore *
 unignore From To Cc Bcc Subject Date Organization X-Label X-Mailer User-Agent X-GM-LABELS X-Gm-Labels X-Labels
 
@@ -12,7 +13,7 @@ set imap_user = "baptiste.wicht@gmail.com"
 set smtp_url = "smtp://baptistewicht@smtp.gmail.com:587/"
 
 # Get passwords
-source .password.muttrc 
+source .password.muttrc
 
 # Gmail more configuration
 set folder = "imaps://imap.gmail.com:993"
@@ -36,11 +37,7 @@ set beep_new
 set editor='vim + -c "set textwidth=72" -c "set wrap"'
 
 # Display labels
-set index_format="%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?(%.20Y) ?%s"
-#set index_format = "%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?{%.20Y} ?%s"
-#set index_format="%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %20Y %s"
-#set index_format="%4C %Z %{%b %d} %-15.15L (%4l) [%y] %s"
-#set index_format="%4C %Z %[!%b %d %Y] %-17.17F (%3l) %s"
+set index_format = "%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?[%.20Y] ?%s"
 
 # Cache folders
 set header_cache =~/.mutt/cache/headers
@@ -65,6 +62,13 @@ bind index,pager \CP sidebar-prev
 bind index,pager \CN sidebar-next
 bind index,pager \CO sidebar-open
 
+# Vim-like opening
+bind index l display-message
+
+# Easier movement inside mails
+bind pager J next-line
+bind pager K previous-line
+
 # Faster folder switch
 set sleep_time = 0
 
@@ -72,10 +76,10 @@ set sleep_time = 0
 alternative_order text/plain text/html *
 auto_view text/html
 
-# Configure connections
+# Configure connections for IMAP
+set imap_keepalive = 900
 set move = no
 set copy = no
-set imap_keepalive = 900
 
 # Discussions view
 set sort = 'threads'
@@ -85,17 +89,8 @@ set sort_aux = 'reverse-last-date-received'
 macro index,pager ut <tag-thread><limit>~T<enter><tag-thread> "show only current thread"
 macro index,pager ua <limit>all<enter> "show everything"
 
-# Labels
-macro index y "<enter-command>set editor=\"~/.mutt/editlabel append\"\n\
-<edit><sync-mailbox><next-undeleted>\
-<enter-command>set editor=vim\n" "Append label"
-macro pager y "<enter-command>set editor=\"~/.mutt/editlabel append\"\n\
-<edit><sync-mailbox><next-undeleted>\
-<enter-command>set editor=vim\n" "Append label"
-macro index Y "<enter-command>set editor=\"~/.mutt/editlabel menu\"\n\
-<edit><sync-mailbox><next-undeleted>\
-<enter-command>set editor=vim\n" "Edit labels"
-macro pager Y "<enter-command>set editor=\"~/.mutt/editlabel menu\"\n\
-<edit><sync-mailbox><next-undeleted>\
-<enter-command>set editor=vim\n" "Edit labels"
-macro index \Cy "<limit>~y " "Limit view to label"
+# Reload macro
+macro index "#" '<sync-mailbox><change-folder>^<enter>' "Sync mailbox".
+
+# Simple macro to limit view to a label
+macro index Cy " ~y " "Limit view to label"
