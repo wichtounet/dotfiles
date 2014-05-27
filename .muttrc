@@ -28,13 +28,14 @@ set send_charset="utf-8"
 source .colors.muttrc
 
 # Faster mail checking
-set timeout = 30
-set mail_check = 10
+set timeout = 15
+set mail_check = 60
 
 # Beeps on new messages
 set beep_new
+
 # Start vim with correct options
-set editor='vim + -c "set textwidth=72" -c "set wrap"'
+set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set spell spelllang=en"'
 
 # Display labels
 set index_format = "%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?[%.20Y] ?%s"
@@ -42,6 +43,8 @@ set index_format = "%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?[%.20Y] ?%s"
 # Cache folders
 set header_cache =~/.mutt/cache/headers
 set message_cachedir =~/.mutt/cache/bodies
+
+# Store certificates
 set certificate_file =~/.mutt/certificates
 
 # Add folders to mailboxes
@@ -58,12 +61,15 @@ set sidebar_width = 35
 color sidebar_new yellow default
 
 # Better bindings for the sidebar
-bind index,pager \CP sidebar-prev
-bind index,pager \CN sidebar-next
-bind index,pager \CO sidebar-open
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cj sidebar-next
+bind index,pager \Cl sidebar-open
 
-# Vim-like opening
+# Vim-like opening of messages
 bind index l display-message
+
+# Vim-like exiting
+bind pager,attach h exit
 
 # Easier movement inside mails
 bind pager J next-line
@@ -81,8 +87,15 @@ auto_view text/html
 
 # Configure connections for IMAP
 set imap_keepalive = 900
+
+# Don't move read messages to another mbox
 set move = no
+
+# Don't record sent messages, GMail does that already
 set copy = no
+
+# Don't ask before appending to an existing mailbox
+set confirmappend = no
 
 # Discussions view
 set sort = 'threads'
