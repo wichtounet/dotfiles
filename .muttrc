@@ -38,7 +38,7 @@ set beep_new
 set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set spell spelllang=en"'
 
 # Display labels
-set index_format = "%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?[%.20Y] ?%s"
+set index_format = "%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?{%.20Y} ?%s"
 
 # Cache folders
 set header_cache =~/.mutt/cache/headers
