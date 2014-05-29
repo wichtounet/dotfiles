@@ -81,8 +81,10 @@ bind attach e edit-type
 # Faster folder switch
 set sleep_time = 0
 
-# Auto view HTML messages
-alternative_order text/plain text/html *
+# Treat mail as plain when possible
+alternative_order text/plain text/html
+
+# Automatically open html messages
 auto_view text/html
 
 # Configure connections for IMAP
@@ -110,6 +112,13 @@ macro index "#" '<sync-mailbox><change-folder>^<enter>' "Sync mailbox".
 
 # Simple macro to limit view to a label
 macro index Cy " ~y " "Limit view to label"
+
+# Extract links from message
+macro pager \Cb <pipe-entry>'w3m'<enter> 'Follow links in w3m'
+macro pager \Cu <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+
+# Configure mailcap
+set mailcap_path = ~/.mailcap
 
 # Alias auto generation
 set display_filter = ~/.mutt/autoalias
