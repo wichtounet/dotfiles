@@ -1,6 +1,6 @@
 # Headers configuration
 ignore *
-unignore From To Cc Bcc Subject Date Organization X-Label X-Mailer User-Agent X-GM-LABELS X-Gm-Labels X-Labels
+unignore From To Reply-To Cc Bcc Subject Date Organization X-Label X-Mailer User-Agent X-GM-LABELS X-Gm-Labels X-Labels
 
 # Gmail configuration
 set from = "baptiste.wicht@gmail.com"
