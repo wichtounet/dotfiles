@@ -41,7 +41,7 @@ set beep_new
 set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set spell spelllang=en"'
 
 # Display labels
-set index_format = "%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?{%.20Y} ?%s"
+set index_format = "%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?{%.20y} ?%s"
 
 # Cache folders
 set header_cache =~/.mutt/cache/headers
@@ -59,6 +59,7 @@ set pager_index_lines=8
 # Always display sidebar
 set sidebar_visible = yes
 set sidebar_width = 35
+set sidebar_sort = yes
 
 # Mark folders with unread mails in yellow
 color sidebar_new yellow default
@@ -87,6 +88,13 @@ set confirmappend = no
 # Discussions view
 set sort = 'threads'
 set sort_aux = 'reverse-last-date-received'
+
+# Don't ask for stuff when replying
+set include=yes
+set fast_reply
+
+# Nice Word Wrapping
+set smart_wrap
 
 # Configure mailcap
 set mailcap_path = ~/.mailcap
