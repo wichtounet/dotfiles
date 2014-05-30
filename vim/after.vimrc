@@ -8,6 +8,11 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 " ESC insert mode with jj
 inoremap jj <ESC>
 
+" Activate mode lines
+set nocompatible 
+filetype plugin on
+set modeline 
+set modelines=1
 
 " Disable folding
 set nofoldenable
