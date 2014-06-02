@@ -30,4 +30,6 @@ macro index Cy " ~y " "Limit view to label"
 
 # Extract links from message
 macro pager \Cb <pipe-entry>'w3m'<enter> 'Follow links in w3m'
-macro pager \Cu <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+macro pager \Ci <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+macro pager \Cu ":set pipe_decode\n|urlview\n:unset pipe_decode\n"\
+                 "call urlview to extract URLs out of a message"
