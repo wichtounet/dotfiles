@@ -9,7 +9,7 @@ if [[ -r /usr/bin/virtualenvwrapper_lazy.sh ]]; then
     source /usr/bin/virtualenvwrapper_lazy.sh
 fi
 
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/wichtounet/build/modular-boost/lib"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/wichtounet/build/modular-boost/lib:/home/wichtounet/install/lib"
 
 #Complete the path
 export PATH="/usr/lib64/ccache/bin:$PATH"
