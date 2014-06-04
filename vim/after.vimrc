@@ -9,10 +9,10 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 inoremap jj <ESC>
 
 " Activate mode lines
-set nocompatible 
+set nocompatible
 filetype plugin on
-set modeline 
-set modelines=1
+set modeline
+set modelines=5
 
 " Disable folding
 set nofoldenable
