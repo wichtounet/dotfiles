@@ -18,6 +18,13 @@ bind pager K previous-line
 # Edit MIME types
 bind attach e edit-type
 
+# Browser
+bind browser l select-entry
+bind browser L view-file
+bind browser gg first-entry
+bind browser G last-entry
+bind browser h exit
+
 # GMail like view
 macro index,pager ut <tag-thread><limit>~T<enter><tag-thread> "show only current thread"
 macro index,pager ua <limit>all<enter> "show everything"
