@@ -1,22 +1,21 @@
 # vim: set filetype=muttrc :
 
-# Better bindings for the sidebar
+# Sidebar
 bind index,pager \Ck sidebar-prev
 bind index,pager \Cj sidebar-next
 bind index,pager \Cl sidebar-open
 
-# Vim-like opening of messages
+# Index
 bind index l display-message
+bind index gg first-entry
+bind index G last-entry
 
-# Vim-like exiting
-bind pager,attach h exit
-
-# Easier movement inside mails
+# Pager
+bind pager h exit
+bind pager gg top
+bind pager G bottom
 bind pager J next-line
 bind pager K previous-line
-
-# Edit MIME types
-bind attach e edit-type
 
 # Browser
 bind browser l select-entry
@@ -24,6 +23,10 @@ bind browser L view-file
 bind browser gg first-entry
 bind browser G last-entry
 bind browser h exit
+
+# Attach
+bind attach h exit
+bind attach e edit-type # Edit MIME Types
 
 # GMail like view
 macro index,pager ut <tag-thread><limit>~T<enter><tag-thread> "show only current thread"
