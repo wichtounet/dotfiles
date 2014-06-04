@@ -27,6 +27,7 @@ bind browser h exit
 # Attach
 bind attach h exit
 bind attach e edit-type # Edit MIME Types
+bind attach l view-attach
 
 # GMail like view
 macro index,pager ut <tag-thread><limit>~T<enter><tag-thread> "show only current thread"
