@@ -9,6 +9,7 @@ bind index,pager \Cl sidebar-open
 bind index l display-message
 bind index gg first-entry
 bind index G last-entry
+bind index h noop               # Disable h
 
 # Pager
 bind pager h exit
