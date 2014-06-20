@@ -1,0 +1,16 @@
+[database]
+path=/data/oi/Gmail/
+
+[user]
+name=Baptiste Wicht
+primary_email=baptiste.wicht@gmail.com
+
+[new]
+tags=inbox
+ignore=
+
+[search]
+exclude_tags=deleted;
+
+[maildir]
+synchronize_flags=true
