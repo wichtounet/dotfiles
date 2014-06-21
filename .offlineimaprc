@@ -19,9 +19,10 @@ nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
                             'trash':   '[Gmail]/Trash',
                             'archive': '[Gmail]/All Mail',
                             }.get(folder, folder)
+sep = /
 
 [Repository Gmail-Remote]
-maxconnections = 1
+maxconnections = 2
 type = Gmail
 remoteuser = baptiste.wicht@gmail.com
 remotepassfile = ~/.password.offlineimaprc
