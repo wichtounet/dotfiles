@@ -33,6 +33,11 @@ function main()
     
     -- Awesome mailing List
     move_if_to_contains(account, mails, "awesome@naquadah.org", "ML/Awesome")
+
+    -- Delete some trash
+    delete_mail_from(account, mails, "enews@rockabilia.com");
+    delete_mail_from(account, mails, "updates@comms.packtpub.com");
+    delete_mail_from(account, mails, "vaultlist@enterthevault.com");
 end
 
 function move_if_subject_contains(account, mails, subject, mailbox)
@@ -43,6 +48,11 @@ end
 function move_if_to_contains(account, mails, to, mailbox)
     filtered = mails:contain_to(to)
     filtered:move_messages(account[mailbox]);
+end
+
+function delete_mail_from(account, mails, from)
+    filtered = mails:contain_from(from)
+    filtered:delete_messages()
 end
 
 -- Utility function to get IMAP password from file
