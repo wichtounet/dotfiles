@@ -1,0 +1,5 @@
+#!/bin/bash
+
+imapfilter
+offlineimap
+notmuch new
