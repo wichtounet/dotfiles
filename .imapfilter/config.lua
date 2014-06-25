@@ -28,9 +28,12 @@ function main()
     -- Doxygen mailing list
     move_if_subject_contains(account, mails, "[Doxygen-users]", "ML/Doxygen")
 
+    -- CLang mailing list
+    move_if_subject_contains(account, mails, "[cfe-users]", "ML/CLang")
+
     -- Mutt mailing list
     move_if_to_contains(account, mails, "mutt-users@mutt.org", "ML")
-    
+
     -- Awesome mailing List
     move_if_to_contains(account, mails, "awesome@naquadah.org", "ML/Awesome")
 
@@ -38,6 +41,8 @@ function main()
     delete_mail_from(account, mails, "enews@rockabilia.com");
     delete_mail_from(account, mails, "updates@comms.packtpub.com");
     delete_mail_from(account, mails, "vaultlist@enterthevault.com");
+
+    delete_mail_if_subject_contains(account, mails, "[CSSeminars] ");
 end
 
 function move_if_subject_contains(account, mails, subject, mailbox)
@@ -52,6 +57,11 @@ end
 
 function delete_mail_from(account, mails, from)
     filtered = mails:contain_from(from)
+    filtered:delete_messages()
+end
+
+function delete_mail_if_subject_contains(account, mails, subject)
+    filtered = mails:contain_subject(subject)
     filtered:delete_messages()
 end
 
