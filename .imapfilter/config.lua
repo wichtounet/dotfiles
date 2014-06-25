@@ -8,10 +8,36 @@ function main()
 
     -- Make sure the account is configured properly
     account.INBOX:check_status()
+    account['[Gmail]/Trash']:check_status()
+    account['[Gmail]/Spam']:check_status()
 
     -- Get all mail from INBOX
     mails = account.INBOX:select_all()
 
+    -- Move mailing lists from INBOX to correct folders
+    move_mailing_lists(account, mails)
+
+    -- Delete some trash
+    delete_mail_from(account, mails, "enews@rockabilia.com");
+    delete_mail_from(account, mails, "updates@comms.packtpub.com");
+    delete_mail_from(account, mails, "vaultlist@enterthevault.com");
+
+    delete_mail_if_subject_contains(account, mails, "[CSSeminars] ");
+
+    -- Get all mail from trash
+    mails = account['[Gmail]/Trash']:select_all()
+
+    -- Move mailing lists from trash to correct folders
+    move_mailing_lists(account, mails)
+
+    -- Get all mail from spam
+    mails = account['[Gmail]/Spam']:select_all()
+
+    -- Move mailing lists from spam to correct folders
+    move_mailing_lists(account, mails)
+end
+
+function move_mailing_lists(account, mails)
     -- ISOCPP mailing lists
     move_if_subject_contains(account, mails, "[std-proposals]", "ML/ISOCPP")
     move_if_subject_contains(account, mails, "[std-discussion]", "ML/ISOCPP")
@@ -36,13 +62,6 @@ function main()
 
     -- Awesome mailing List
     move_if_to_contains(account, mails, "awesome@naquadah.org", "ML/Awesome")
-
-    -- Delete some trash
-    delete_mail_from(account, mails, "enews@rockabilia.com");
-    delete_mail_from(account, mails, "updates@comms.packtpub.com");
-    delete_mail_from(account, mails, "vaultlist@enterthevault.com");
-
-    delete_mail_if_subject_contains(account, mails, "[CSSeminars] ");
 end
 
 function move_if_subject_contains(account, mails, subject, mailbox)
