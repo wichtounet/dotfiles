@@ -78,7 +78,7 @@ setopt hist_ignore_all_dups
 export ZSH=$HOME/.oh-my-zsh
 
 export ZSH_THEME="agnoster"
-plugins=(autojump git git-flow taskwarrior ssh-agent)
+plugins=(autojump git git-flow taskwarrior ssh-agent zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -127,6 +127,16 @@ function pvcp()
 function mdless()
 {
   pandoc -s -f markdown -t man $1 | groff -T utf8 -man | less
+}
+
+function ranger-cd {
+  tempfile='/tmp/chosendir'
+  ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+  test -f "$tempfile" &&
+  if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+    cd -- "$(cat "$tempfile")"
+  fi
+  rm -f -- "$tempfile"
 }
 
 bindkey -v
