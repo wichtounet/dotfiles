@@ -77,6 +77,7 @@ setopt hist_ignore_all_dups
 # Enable oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
 
+export DEFAULT_USER="wichtounet"
 export ZSH_THEME="agnoster"
 plugins=(autojump git git-flow taskwarrior ssh-agent zsh-syntax-highlighting)
 
