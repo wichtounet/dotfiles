@@ -4,6 +4,9 @@
 bind index,pager \Ck sidebar-prev
 bind index,pager \Cj sidebar-next
 bind index,pager \Cl sidebar-open
+bind index,pager \Cn sidebar-scroll-up
+bind index,pager \Cv sidebar-scroll-down
+bind index,pager \Ct sidebar-toggle
 
 # Index
 bind index l display-message
