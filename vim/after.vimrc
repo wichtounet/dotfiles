@@ -77,6 +77,12 @@ set noexrc
 set timeout
 set timeoutlen=750
 
+" Arrow keys are evil :)
+nnoremap <Left> :echoe "Use h, you moron..."<CR>
+nnoremap <Right> :echoe "Use l, you moron..."<CR>
+nnoremap <Up> :echoe "Use k, you moron..."<CR>
+nnoremap <Down> :echoe "Use j, you moron..."<CR>
+
 " ctrlp {
 
 let g:ctrlp_custom_ignore = {
