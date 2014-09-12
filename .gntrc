@@ -1,6 +1,6 @@
 [general]
 shadow = 0
-mouse = 0
+mouse = 1
 wm = /usr/lib/gnt/irssi.so
 remember_position = 1
 small-button = true
