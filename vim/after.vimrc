@@ -16,6 +16,7 @@ set modelines=5
 
 " Disable folding
 set nofoldenable
+let g:riv_disable_folding = 1
 
 " Add support for airline
 let g:airline_left_sep = '⮀'

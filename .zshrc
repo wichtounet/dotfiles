@@ -17,7 +17,7 @@ export PATH="/home/wichtounet/build/tmsu-0.2.0/bin/:$PATH"
 export PATH="/home/wichtounet/opt/cross/bin/:$PATH"
 
 #Configure CCache
-export CCACHE_DIR="/var/tmp/ccache"
+export CCACHE_DIR="/data/ccache"
 export CCACHE_SIZE="8G"
 
 export GOPATH="/home/wichtounet/dev/gocode/"

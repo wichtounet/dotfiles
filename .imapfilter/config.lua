@@ -35,6 +35,8 @@ function main()
 
     -- Move mailing lists from spam to correct folders
     move_mailing_lists(account, mails)
+
+    move_if_from_contains(account, mails, "edarling.ch", "INBOX")
 end
 
 function move_mailing_lists(account, mails)
@@ -71,6 +73,11 @@ end
 
 function move_if_to_contains(account, mails, to, mailbox)
     filtered = mails:contain_to(to)
+    filtered:move_messages(account[mailbox]);
+end
+
+function move_if_from_contains(account, mails, from, mailbox)
+    filtered = mails:contain_from(from)
     filtered:move_messages(account[mailbox]);
 end
 
