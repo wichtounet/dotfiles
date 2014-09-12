@@ -79,7 +79,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 export DEFAULT_USER="wichtounet"
 export ZSH_THEME="agnoster"
-plugins=(autojump git git-flow taskwarrior ssh-agent zsh-syntax-highlighting)
+plugins=(autojump git git-flow taskwarrior gpg-agent ssh-agent zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,8 +110,7 @@ alias sorry='sudo $(fc -l -n -1)'
 alias asshole='echo Alright. You do not have to be rude, you know. && sleep 0.8 && sudo $(fc -l -n -1)'
 
 # Copy with pv
-function pvcp()
-{
+function pvcp(){
   SOURCE=$1
 
   if [ -d $2 ]
@@ -125,10 +124,17 @@ function pvcp()
 }
 
 # mdless function
-function mdless()
-{
+function mdless(){
   pandoc -s -f markdown -t man $1 | groff -T utf8 -man | less
 }
+
+function pygmentize_cat {
+    for arg in "$@" ; do
+        pygmentize -g "${arg}" 2> /dev/null || /bin/cat "${arg}"
+    done
+}
+
+command -v pygmentize > /dev/null && alias pcat=pygmentize_cat
 
 function ranger-cd {
   tempfile='/tmp/chosendir'
