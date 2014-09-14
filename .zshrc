@@ -79,7 +79,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 export DEFAULT_USER="wichtounet"
 export ZSH_THEME="agnoster"
-plugins=(autojump git git-flow taskwarrior ssh-agent zsh-syntax-highlighting)
+plugins=(autojump git git-flow taskwarrior gpg-agent ssh-agent zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
