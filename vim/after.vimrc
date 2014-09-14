@@ -84,6 +84,9 @@ nnoremap <Right> :echoe "Use l, you moron..."<CR>
 nnoremap <Up> :echoe "Use k, you moron..."<CR>
 nnoremap <Down> :echoe "Use j, you moron..."<CR>
 
+" Tabs
+set expandtab
+
 " ctrlp {
 
 let g:ctrlp_custom_ignore = {
