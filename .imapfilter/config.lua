@@ -60,7 +60,7 @@ function move_mailing_lists(account, mails)
     move_if_subject_contains(account, mails, "[cfe-users]", "ML/CLang")
 
     -- Mutt mailing list
-    move_if_to_contains(account, mails, "mutt-users@mutt.org", "ML")
+    move_if_to_contains(account, mails, "mutt-users@mutt.org", "ML/Mutt")
 
     -- Awesome mailing List
     move_if_to_contains(account, mails, "awesome@naquadah.org", "ML/Awesome")
