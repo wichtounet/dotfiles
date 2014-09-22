@@ -64,6 +64,9 @@ function move_mailing_lists(account, mails)
 
     -- Awesome mailing List
     move_if_to_contains(account, mails, "awesome@naquadah.org", "ML/Awesome")
+
+    -- Awesome mailing List
+    move_if_to_contains(account, mails, "ranger-users@nongnu.org", "ML/Ranger")
 end
 
 function move_if_subject_contains(account, mails, subject, mailbox)
