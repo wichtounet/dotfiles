@@ -16,6 +16,7 @@ set modelines=5
 
 " Disable folding
 set nofoldenable
+let g:riv_disable_folding = 1
 
 " Add support for airline
 let g:airline_left_sep = '⮀'
@@ -82,6 +83,9 @@ nnoremap <Left> :echoe "Use h, you moron..."<CR>
 nnoremap <Right> :echoe "Use l, you moron..."<CR>
 nnoremap <Up> :echoe "Use k, you moron..."<CR>
 nnoremap <Down> :echoe "Use j, you moron..."<CR>
+
+" Tabs
+set expandtab
 
 " ctrlp {
 

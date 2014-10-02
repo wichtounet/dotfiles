@@ -101,7 +101,7 @@ ${font Arial:bold:size=10}${color 7A5ADA}Network ${hr 2}$color$font
 
 Hostname: $alignr $nodename
 Local IP: $alignr ${addr enp4s0}
-Public IP: $alignr ${exec wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
+Public IP: $alignr 46.14.168.153
 
  Down: $alignr ${downspeed enp4s0}
 ${downspeedgraph enp4s0}

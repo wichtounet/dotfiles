@@ -35,6 +35,8 @@ function main()
 
     -- Move mailing lists from spam to correct folders
     move_mailing_lists(account, mails)
+
+    move_if_from_contains(account, mails, "edarling.ch", "INBOX")
 end
 
 function move_mailing_lists(account, mails)
@@ -58,10 +60,13 @@ function move_mailing_lists(account, mails)
     move_if_subject_contains(account, mails, "[cfe-users]", "ML/CLang")
 
     -- Mutt mailing list
-    move_if_to_contains(account, mails, "mutt-users@mutt.org", "ML")
+    move_if_to_contains(account, mails, "mutt-users@mutt.org", "ML/Mutt")
 
     -- Awesome mailing List
     move_if_to_contains(account, mails, "awesome@naquadah.org", "ML/Awesome")
+
+    -- Awesome mailing List
+    move_if_to_contains(account, mails, "ranger-users@nongnu.org", "ML/Ranger")
 end
 
 function move_if_subject_contains(account, mails, subject, mailbox)
@@ -71,6 +76,11 @@ end
 
 function move_if_to_contains(account, mails, to, mailbox)
     filtered = mails:contain_to(to)
+    filtered:move_messages(account[mailbox]);
+end
+
+function move_if_from_contains(account, mails, from, mailbox)
+    filtered = mails:contain_from(from)
     filtered:move_messages(account[mailbox]);
 end
 
