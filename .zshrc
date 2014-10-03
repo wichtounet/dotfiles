@@ -109,6 +109,8 @@ alias du='du -d1 -h'
 alias sorry='sudo $(fc -l -n -1)'
 alias asshole='echo Alright. You do not have to be rude, you know. && sleep 0.8 && sudo $(fc -l -n -1)'
 
+alias gcc_make='make CXX=g++-4.9.1 LD=g++-4.9.1'
+
 # Copy with pv
 function pvcp(){
   SOURCE=$1
