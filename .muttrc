@@ -39,6 +39,8 @@ set pgp_timeout = 3600
 set crypt_autosign = yes
 set crypt_replyencrypt = yes
 
+send-hook fabien.dubosson@gmail.com 'set pgp_autoencrypt'
+
 bind compose p pgp-menu
 macro compose Y pfy "send mail without GPG"
 

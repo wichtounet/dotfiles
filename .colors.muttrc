@@ -1,16 +1,16 @@
 # vim: filetype=muttrc
 
 # basic colors ---------------------------------------------------------
-color normal        brightblue      default         
-color error         red             default         
-color tilde         white           default         
-color message       cyan            default         
-color markers       red             black           
-color attachment    black           default         
-color search        brightmagenta   default         
-#color status        J_black         J_status        
-color status        brightblue      white           
-color indicator     brightwhite     yellow          
+color normal        brightblue      default
+color error         red             default
+color tilde         white           default
+color message       cyan            default
+color markers       red             black
+color attachment    black           default
+color search        brightmagenta   default
+#color status        J_black         J_status
+color status        brightblue      white
+color indicator     brightwhite     yellow
 color tree          yellow          default                                     # arrow in threads
 
 # basic monocolor screen
@@ -21,16 +21,11 @@ mono  error         bold
 
 # index ----------------------------------------------------------------
 
-#color index         red             default         "~D(!~p|~p)"               # deleted
-#color index         white           default         ~F                         # flagged
-#color index         brightred       default         ~=                         # duplicate messages
-#color index         brightcyan      default         "~A!~N!~T!~p!~Q!~F!~D!~P"  # the rest
-#color index         J_base          default         "~A~N!~T!~p!~Q!~F!~D"      # the rest, new
 color index         red             default         "~A"                        # all messages
 color index         brightred       default         "~E"                        # expired messages
-color index         blue            default         "~N"                        # new messages
-color index         blue            default         "~O"                        # old messages
-color index         brightmagenta   default         "~Q"                        # messages that have been replied to
+color index         white           default         "~N"                        # new messages
+color index         white           default         "~O"                        # old messages
+
 color index         brightcyan      default         "~R"                        # read messages
 color index         blue            default         "~U"                        # unread messages
 color index         blue            default         "~U~$"                      # unread, unreferenced messages
@@ -49,44 +44,35 @@ color index         white           red             "~D"                        
 color index         brightgreen     default         "~v~(!~N)"                  # collapsed thread with no unread
 color index         yellow          default         "~v~(~N)"                   # collapsed thread with some unread
 color index         green           default         "~N~v~(~N)"                 # collapsed thread with unread parent
-# statusbg used to indicated flagged when foreground color shows other status
-# for collapsed thread
 color index         red             white           "~v~(~F)!~N"                # collapsed thread with flagged, no unread
 color index         yellow          white           "~v~(~F~N)"                 # collapsed thread with some unread & flagged
 color index         green           white           "~N~v~(~F~N)"               # collapsed thread with unread parent & flagged
 color index         green           white           "~N~v~(~F)"                 # collapsed thread with unread parent, no unread inside, but some flagged
 color index         cyan            white           "~v~(~p)"                   # collapsed thread with unread parent, no unread inside, some to me directly
 color index         yellow          red             "~v~(~D)"                   # thread with deleted (doesn't differentiate between all or partial)
-#color index         yellow          default         "~(~N)"                    # messages in threads with some unread
-#color index         green           default         "~S"                       # superseded messages
-#color index         red             default         "~T"                       # tagged messages
-#color index         brightred       red             "~="                       # duplicated messages
 
-color   index_author brightred default                 "~N"
-color   index_author brightred default                 "~O"
-
-color  index_subject brightred default "~z >100K"
-
+color index white green "(~N|~O)(~g|~G)"
+color index green default "!(~N|~O)(~g|~G)"
 
 # message headers ------------------------------------------------------
 
 #color header        brightcyan      default         "^"
-color hdrdefault    brightcyan      default         
+color hdrdefault    brightcyan      default
 color header        brightblue      default         "^(From)"
 color header        blue            default         "^(Subject)"
 
 # body -----------------------------------------------------------------
 
-color quoted        blue            default         
-color quoted1       cyan            default         
-color quoted2       yellow          default         
-color quoted3       red             default         
-color quoted4       brightred       default         
+color quoted        blue            default
+color quoted1       cyan            default
+color quoted2       yellow          default
+color quoted3       red             default
+color quoted4       brightred       default
 
-color signature     brightcyan      default         
-color bold          white           default         
-color underline     white           default         
-color normal        default         default         
+color signature     brightcyan      default
+color bold          white           default
+color underline     white           default
+color normal        default         default
 #
 color body          brightgreen     default         "[;:][-o][)/(|]"    # emoticons
 color body          brightgreen     default         "[;:][)(|]"         # emoticons
