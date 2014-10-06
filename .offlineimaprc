@@ -29,7 +29,7 @@ remotepassfile = ~/.password.offlineimaprc
 realdelete = no
 nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
                             '[Gmail]/Sent Mail': 'sent',
-                            '[Gmail]/Starred':   'flagged',
+                            '[Gmail]/Starred':   'starred',
                             '[Gmail]/Important':   'important',
                             '[Gmail]/Spam':   'spam',
                             '[Gmail]/Trash':     'trash',
@@ -38,6 +38,8 @@ nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
 folderfilter = lambda folder: folder not in ['[Gmail]/All Mail',
                                              '[Gmail]/Important',
                                              '[Gmail]/Starred',
+                                             '[Gmail]/flagged',
+                                             'flagged',
                                              ]
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 

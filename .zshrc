@@ -109,9 +109,10 @@ alias du='du -d1 -h'
 alias sorry='sudo $(fc -l -n -1)'
 alias asshole='echo Alright. You do not have to be rude, you know. && sleep 0.8 && sudo $(fc -l -n -1)'
 
+alias gcc_make='make CXX=g++-4.9.1 LD=g++-4.9.1'
+
 # Copy with pv
-function pvcp()
-{
+function pvcp(){
   SOURCE=$1
 
   if [ -d $2 ]
@@ -125,10 +126,17 @@ function pvcp()
 }
 
 # mdless function
-function mdless()
-{
+function mdless(){
   pandoc -s -f markdown -t man $1 | groff -T utf8 -man | less
 }
+
+function pygmentize_cat {
+    for arg in "$@" ; do
+        pygmentize -g "${arg}" 2> /dev/null || /bin/cat "${arg}"
+    done
+}
+
+command -v pygmentize > /dev/null && alias pcat=pygmentize_cat
 
 function ranger-cd {
   tempfile='/tmp/chosendir'
