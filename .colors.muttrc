@@ -51,8 +51,8 @@ color index         green           white           "~N~v~(~F)"                 
 color index         cyan            white           "~v~(~p)"                   # collapsed thread with unread parent, no unread inside, some to me directly
 color index         yellow          red             "~v~(~D)"                   # thread with deleted (doesn't differentiate between all or partial)
 
-color index white green "(~N|~O)(~g|~G)"
-color index green default "!(~N|~O)(~g|~G)"
+color index white green "(~N|~O)(~g|~G)!~D"
+color index green default "!(~N|~O)(~g|~G)!~D"
 
 # message headers ------------------------------------------------------
 
