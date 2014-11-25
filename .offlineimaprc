@@ -40,6 +40,10 @@ folderfilter = lambda folder: folder not in ['[Gmail]/All Mail',
                                              '[Gmail]/Starred',
                                              '[Gmail]/flagged',
                                              'flagged',
+                                             'ML/Logback',
+                                             'Perso/Projects/JTheque/GitHub',
+                                             'Perso/Projects/Wordpress',
+                                             'Phd/Assistanat/Algo',
                                              ]
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
