@@ -82,4 +82,4 @@ Album: $alignr ${execi 5 cmus-remote -Q 2>/dev/null | grep ' album ' | cut -d " 
 Song: $alignr ${execi 5 cmus-remote -Q 2>/dev/null | grep ' title ' | cut -d " " -f 3-}
 
 Progress:
-${execibar 4 echo "(`cmus-remote -Q 2>/dev/null | /usr/bin/zgrep 'position ' | cut -c 10-` / `cmus-remote -Q 2>/dev/null | /usr/bin/zgrep 'duration ' | cut -c 10-`)*100.0" | bc -l | cut -d . -f 1}
+${execibar 4 bash ~/.conky/cmus_progress.sh}
