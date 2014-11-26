@@ -3,7 +3,7 @@ function main()
         server = 'imap.gmail.com',
         username = 'baptiste.wicht@gmail.com',
         password = get_imap_password(".password.offlineimaprc"),
-        ssl = 'ssl3',
+        ssl = 'tls1',
     }
 
     -- Make sure the account is configured properly
@@ -21,6 +21,7 @@ function main()
     delete_mail_from(account, mails, "enews@rockabilia.com");
     delete_mail_from(account, mails, "updates@comms.packtpub.com");
     delete_mail_from(account, mails, "vaultlist@enterthevault.com");
+    delete_mail_from(account, mails, "Inneke.Berghmans@PPW.KULEUVEN.BE");
 
     delete_mail_if_subject_contains(account, mails, "[CSSeminars] ");
 
