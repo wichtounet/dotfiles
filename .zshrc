@@ -12,13 +12,13 @@ fi
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/wichtounet/build/modular-boost/lib:/home/wichtounet/install/lib"
 
 #Complete the path
-export PATH="/usr/lib64/ccache/bin:$PATH"
+#export PATH="/usr/lib64/ccache/bin:$PATH"
 export PATH="/home/wichtounet/build/tmsu-0.2.0/bin/:$PATH"
 export PATH="/home/wichtounet/opt/cross/bin/:$PATH"
 
 #Configure CCache
-export CCACHE_DIR="/data/ccache"
-export CCACHE_SIZE="8G"
+#export CCACHE_DIR="/data/ccache"
+#export CCACHE_SIZE="8G"
 
 export GOPATH="/home/wichtounet/dev/gocode/"
 
@@ -112,6 +112,8 @@ alias asshole='echo Alright. You do not have to be rude, you know. && sleep 0.8 
 alias gcc_make='make CXX=g++-4.9.1 LD=g++-4.9.1'
 alias pump_make='pump make CXX="distcc /usr/bin/clang++"'
 
+alias pump_make='pump make -j16 CXX="distcc /usr/bin/clang++" CC="distcc /usr/bin/clang"'
+
 # Copy with pv
 function pvcp(){
   SOURCE=$1
@@ -153,3 +155,9 @@ bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -M vicmd 'j' history-beginning-search-forward
 bindkey -M vicmd 'k' history-beginning-search-backward
+
+export CC=clang
+export CXX=clang++
+export LD=clang++
+
+alias nano='vim'

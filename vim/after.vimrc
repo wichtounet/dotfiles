@@ -91,6 +91,9 @@ nnoremap <Down> :echoe "Use j, you moron..."<CR>
 " Tabs
 set expandtab
 
+set nobinary
+set eol
+
 " ctrlp {
 
 let g:ctrlp_custom_ignore = {
