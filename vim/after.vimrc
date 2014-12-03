@@ -8,6 +8,9 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 " ESC insert mode with jj
 inoremap jj <ESC>
 
+" Activate breakindent
+set breakindent
+
 " Activate mode lines
 set nocompatible
 filetype plugin on
