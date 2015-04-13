@@ -113,6 +113,7 @@ alias asshole='echo Alright. You do not have to be rude, you know. && sleep 0.8 
 alias gcc_make='make CXX=g++-4.9.2 LD=g++-4.9.2'
 alias clang_make='make CXX=clang++ LD=clang++'
 alias icc_make='make CXX=icpc LD=icpc'
+alias pump_make='pump make CXX="distcc /usr/bin/clang++"'
 
 alias pump_make='pump make -j16 CXX="distcc /usr/bin/clang++" CC="distcc /usr/bin/clang"'
 

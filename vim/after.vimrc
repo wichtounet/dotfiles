@@ -11,6 +11,9 @@ vnoremap // y/<C-R>"<CR>
 " ESC insert mode with jj
 inoremap jj <ESC>
 
+" Activate breakindent
+set breakindent
+
 " Activate mode lines
 set nocompatible
 filetype plugin on
