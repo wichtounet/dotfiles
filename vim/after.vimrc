@@ -5,6 +5,9 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
+" Search for selection
+vnoremap // y/<C-R>"<CR>
+
 " ESC insert mode with jj
 inoremap jj <ESC>
 
