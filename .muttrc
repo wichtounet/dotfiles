@@ -7,7 +7,7 @@ set from = "baptiste.wicht@gmail.com"
 set realname = "Baptiste Wicht"
 
 # SMTP Connections
-set smtp_url = "smtp://baptistewicht@smtp.gmail.com:587/"
+set smtp_url = "smtps://baptistewicht@smtp.gmail.com:465/"
 
 # Get passwords
 source ~/.password.muttrc
