@@ -90,6 +90,7 @@ alias grep='grep -n'
 alias gc='git commit'
 alias gca='git commit -a'
 alias gcadd='git add -A'
+alias gsu='git submodule update'
 
 # Misc aliases
 alias lla='ls -la'
@@ -109,7 +110,9 @@ alias du='du -d1 -h'
 alias sorry='sudo $(fc -l -n -1)'
 alias asshole='echo Alright. You do not have to be rude, you know. && sleep 0.8 && sudo $(fc -l -n -1)'
 
-alias gcc_make='make CXX=g++-4.9.1 LD=g++-4.9.1'
+alias gcc_make='make CXX=g++-4.9.2 LD=g++-4.9.2'
+alias clang_make='make CXX=clang++ LD=clang++'
+alias icc_make='make CXX=icpc LD=icpc'
 
 alias pump_make='pump make -j16 CXX="distcc /usr/bin/clang++" CC="distcc /usr/bin/clang"'
 
