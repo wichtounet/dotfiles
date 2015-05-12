@@ -12,7 +12,8 @@ vnoremap // y/<C-R>"<CR>
 inoremap jj <ESC>
 
 " Activate breakindent
-set breakindent
+" TODO Find a way to reactivate this
+" set breakindent
 
 " Activate mode lines
 set nocompatible
@@ -90,6 +91,8 @@ nnoremap <Left> :echoe "Use h, you moron..."<CR>
 nnoremap <Right> :echoe "Use l, you moron..."<CR>
 nnoremap <Up> :echoe "Use k, you moron..."<CR>
 nnoremap <Down> :echoe "Use j, you moron..."<CR>
+
+nnoremap <Space> :w<CR>
 
 " Tabs
 set expandtab
