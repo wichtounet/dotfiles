@@ -11,6 +11,9 @@ fi
 
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/wichtounet/build/modular-boost/lib:/home/wichtounet/install/lib"
 
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/intel/mkl/lib/intel64"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/intel/lib/intel64"
+
 #Complete the path
 #export PATH="/usr/lib64/ccache/bin:$PATH"
 export PATH="/home/wichtounet/build/tmsu-0.2.0/bin/:$PATH"
