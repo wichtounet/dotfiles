@@ -24,12 +24,12 @@
 #include /usr/share/doc/task/rc/dark-yellow-green.theme
 
 #Change the columns for the task list report
-report.list.labels=ID,Project,Pri,Age,Urgency,Description
-report.list.columns=id,project,priority,entry.age,urgency,description
+report.list.labels=ID,Project,Tags,Pri,Age,Urgency,Due,Description
+report.list.columns=id,project,tags,priority,entry.age,urgency,due,description
 
 #Change the columns for the task next report
-report.next.labels=ID,Project,Tags,Pri,Age,Urgency,Description
-report.next.columns=id,project,tags,priority,entry.age,urgency,description
+report.next.labels=ID,Project,Tags,Pri,Age,Urgency,Due,Description
+report.next.columns=id,project,tags,priority,entry.age,urgency,due,description
 
 #use vim
 editor=vim
