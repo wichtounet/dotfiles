@@ -7,4 +7,6 @@ set showtabline=never
 
 inoremap jj <esc>
 
+set hintkeys=asdfjkl
+
 " vim: set ft=pentadactyl:
