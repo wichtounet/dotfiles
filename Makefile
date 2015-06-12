@@ -33,4 +33,9 @@ install-vim: install-zsh
 	-ln -si ${SOURCE}/vim/local.vimrc ~/vimified/local.vimrc
 	vim +BundleInstall +qall
 
+repair-vimified:
+	-ln -si ${SOURCE}/vim/after.vimrc ~/vimified/after.vimrc
+	-ln -si ${SOURCE}/vim/before.vimrc ~/vimified/before.vimrc
+	-ln -si ${SOURCE}/vim/local.vimrc ~/vimified/local.vimrc
+
 .PHONY: install install-config install-git install-task install-fonts install-zsh install-vim
