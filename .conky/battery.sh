@@ -4,7 +4,7 @@ healthy='#859900'
 low='#b58900'
 discharge='#dc322f'
 
-capacity=`cat /sys/class/power_supply/BAT0/capacity`
+capacity=`cat /sys/class/power_supply/BAT1/capacity`
 if (($capacity <= 25));
 then
         capacityColour=$low
@@ -12,7 +12,7 @@ else
         capacityColour=$healthy
 fi
 
-status=`cat /sys/class/power_supply/BAT0/status`
+status=`cat /sys/class/power_supply/BAT1/status`
 
 if [[ "$status" = "Discharging" ]]
 then

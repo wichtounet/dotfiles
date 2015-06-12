@@ -8,13 +8,13 @@ own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 background no
 override_utf8_locale yes
 use_xft yes
-xftfont 123:size=7
+xftfont 123:size=11
 xftalpha 0.8
 update_interval 1.0
 total_run_times 0
 double_buffer yes
-minimum_size 220 1000
-maximum_width 300
+minimum_size 300 2000
+maximum_width 400
 draw_shades no
 draw_outline no
 draw_borders no
@@ -32,14 +32,14 @@ lua_load ~/.conky/clock.lua
 lua_draw_hook_pre clock
 
 TEXT
-${font Arial:bold:size=10}${color 7A5ADA}Time ${color 7A5ADA}${hr 2}$color$font
+${font Arial:bold:size=12}${color 7A5ADA}Time ${color 7A5ADA}${hr 2}$color$font
 ${voffset 8}${color 7A5ADA}${font ubuntu:size=16}${time %A}${font}${voffset -8}${alignr 50}${color FFFFFF}${font ubuntu:size=38}${time %e}${font}
 ${color FFFFFF}${voffset -30}${color FFFFFF}${font ubuntu:size=18}${time %b}${font}${voffset -3} ${color FFFFFF}${font ubuntu:size=20}${time %Y}${font}${color 7A5ADA}${hr}
 ${image ~/.conky/gentoo-logo.png -p 80,125 -s 80x80}
 
 ${voffset 120}
 
-${font Arial:bold:size=10}${color 7A5ADA}Weather ${color 7A5ADA}${hr 2}$color$font
+${font Arial:bold:size=12}${color 7A5ADA}Weather ${color 7A5ADA}${hr 2}$color$font
 
 ${execi 300 curl -s "http://weather.yahooapis.com/forecastrss?w=782490&u=c" -o ~/.cache/weather.xml}${font :size=15}${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "city=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}, ${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "country=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font}
 ${font :size=54}${alignr}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°${font}${voffset -20}
@@ -55,33 +55,33 @@ ${voffset 60}${execi 300 cp -f ~/.conky/images/$(grep "yweather:forecast" ~/.cac
 ${goto 60}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1' | tr '[a-z]' '[A-Z]'}${goto 190}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2' | tr '[a-z]' '[A-Z]'}
 ${goto 60}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}° ${color6}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}°${color}${goto 190}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}° ${color6}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}°${color}${voffset 15}
 
-${font Arial:bold:size=10}${color 7A5ADA}System ${hr 2}$color$font
+${font Arial:bold:size=12}${color 7A5ADA}System ${hr 2}$color$font
 
 Kernel: $alignr $kernel
 Hostname: $alignr $nodename
 Arch: $alignr $machine
 Uptime: $alignr $uptime
 
-${font Arial:bold:size=10}${color 7A5ADA}Gentoo ${hr 2}$color$font
+${font Arial:bold:size=12}${color 7A5ADA}Gentoo ${hr 2}$color$font
 
 Last sync: $alignr ${execi 300 cat /usr/portage/metadata/timestamp.chk}
 Installed Packages: $alignr ${execi 300 EIX_LIMIT=0 eix --installed --only-names | wc -l}
 World Packages: $alignr ${execi 300 EIX_LIMIT=0 eix --selected --only-names | wc -l}
 System Packages: $alignr ${execi 300 EIX_LIMIT=0 eix --system --only-names | wc -l}
 
-${font Arial:bold:size=10}${color 7A5ADA}Hardware ${color 7A5ADA}${hr 2}$color$font
+${font Arial:bold:size=12}${color 7A5ADA}Hardware ${color 7A5ADA}${hr 2}$color$font
 
 CPU: $alignr ${exec  cat /proc/cpuinfo | grep 'model name' | head -1 | cut -c14-}
 Memory: $alignr $memmax
 
-${font Arial:bold:size=10}${color 7A5ADA}Battery ${color 7A5ADA}${hr 2}$color$font
+${font Arial:bold:size=12}${color 7A5ADA}Battery ${color 7A5ADA}${hr 2}$color$font
 
-Status: $alignr ${battery BAT0}
-Time: $alignr ${battery_time BAT0}
+Status: $alignr ${battery BAT1}
+Time: $alignr ${battery_time BAT1}
 
 ${battery_bar 3}
 
-${font Arial:bold:size=10}${color 7A5ADA}Now playing ${color 7A5ADA}${hr 2}$color$font
+${font Arial:bold:size=12}${color 7A5ADA}Now playing ${color 7A5ADA}${hr 2}$color$font
 
 Artist: $alignr ${execi 5 cmus-remote -Q 2>/dev/null | grep ' artist ' | cut -d " " -f 3-}
 Album: $alignr ${execi 5 cmus-remote -Q 2>/dev/null | grep ' album ' | cut -d " " -f 3-}
