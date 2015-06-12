@@ -20,6 +20,7 @@ bind pager gg top
 bind pager G bottom
 bind pager J next-line
 bind pager K previous-line
+bind pager gr group-reply
 
 # Browser
 bind browser l select-entry

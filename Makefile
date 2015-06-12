@@ -1,5 +1,4 @@
 install: install-vim
-
 SOURCE=${CURDIR}
 
 install-config:

@@ -1,0 +1,13 @@
+intelprefix=/opt/intel/
+prefix=/opt/intel/mkl/
+exec_prefix=${prefix}
+libdir=${prefix}/lib/intel64/
+includedir=${prefix}/include
+compilelibdir=${intelprefix}/lib/intel64/
+
+Name: mkl
+Description: Intel MKL
+Version: 2014
+URL: http://intel.org
+Libs: -L${libdir} -L${compilelibdir} -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5 -lpthread -lm
+Cflags: -I${includedir} -pthread
