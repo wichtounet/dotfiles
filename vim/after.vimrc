@@ -22,6 +22,8 @@ set nofoldenable
 let g:riv_disable_folding = 1
 let g:riv_fold_auto_update = 0
 
+nnoremap <Space> :w!<CR>
+
 " Add support for airline
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
