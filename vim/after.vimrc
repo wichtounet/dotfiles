@@ -5,11 +5,15 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
+" Search for selection
+vnoremap // y/<C-R>"<CR>
+
 " ESC insert mode with jj
 inoremap jj <ESC>
 
 " Activate breakindent
-set breakindent
+" TODO Find a way to reactivate this
+" set breakindent
 
 " Activate mode lines
 set nocompatible
@@ -34,6 +38,8 @@ let g:airline_readonly_symbol = '⭤'
 let g:airline_linecolumn_prefix = '⭡'
 
 let g:indentLine_char = '│'
+
+nnoremap <Space> :w <CR>
 
 " Map easily tab change
 nnoremap th  :tabfirst<CR>
@@ -89,6 +95,8 @@ nnoremap <Left> :echoe "Use h, you moron..."<CR>
 nnoremap <Right> :echoe "Use l, you moron..."<CR>
 nnoremap <Up> :echoe "Use k, you moron..."<CR>
 nnoremap <Down> :echoe "Use j, you moron..."<CR>
+
+nnoremap <Space> :w<CR>
 
 " Tabs
 set expandtab

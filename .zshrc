@@ -9,21 +9,28 @@ if [[ -r /usr/bin/virtualenvwrapper_lazy.sh ]]; then
     source /usr/bin/virtualenvwrapper_lazy.sh
 fi
 
+# Custom boost to library path
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/wichtounet/build/modular-boost/lib:/home/wichtounet/install/lib"
 
-#Complete the path
-#export PATH="/usr/lib64/ccache/bin:$PATH"
-export PATH="/home/wichtounet/build/tmsu-0.2.0/bin/:$PATH"
+# Add suport for MKL libraries
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/intel/mkl/lib/intel64"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/intel/lib/intel64"
+
+# Add Intel tools to the path
+export PATH="$PATH:/opt/intel/vtune_amplifier_xe_2015/bin/"
+export PATH="$PATH:/opt/intel/inspector_xe_2015/bin/"
+export PATH="$PATH:/opt/intel/composer_xe_2015/bin/"
+export PATH="$PATH:/opt/intel/advisor_xe_2015/bin/"
+
+# Add ccache to the path
+export PATH="/usr/lib64/ccache/bin:$PATH"
+
+# Add cross compiler to path
 export PATH="/home/wichtounet/opt/cross/bin/:$PATH"
 
 #Configure CCache
-#export CCACHE_DIR="/data/ccache"
-#export CCACHE_SIZE="8G"
-
-export GOPATH="/home/wichtounet/dev/gocode/"
-
-export JAVA_HOME="/etc/java-config-2/current-system-vm"
-export _JAVA_AWT_WM_NONREPARENTING=1
+export CCACHE_DIR="/data/ccache"
+export CCACHE_SIZE="8G"
 
 # Force pdflatex to print with lots of columns
 export max_print_line=100000
@@ -90,6 +97,7 @@ alias grep='grep -n'
 alias gc='git commit'
 alias gca='git commit -a'
 alias gcadd='git add -A'
+alias gsu='git submodule update'
 
 # Misc aliases
 alias lla='ls -la'
@@ -109,7 +117,9 @@ alias du='du -d1 -h'
 alias sorry='sudo $(fc -l -n -1)'
 alias asshole='echo Alright. You do not have to be rude, you know. && sleep 0.8 && sudo $(fc -l -n -1)'
 
-alias gcc_make='make CXX=g++-4.9.1 LD=g++-4.9.1'
+alias gcc_make='make CXX=g++-4.9.2 LD=g++-4.9.2'
+alias clang_make='make CXX=clang++ LD=clang++'
+alias icc_make='make CXX=icpc LD=icpc'
 alias pump_make='pump make CXX="distcc /usr/bin/clang++"'
 
 alias pump_make='pump make -j16 CXX="distcc /usr/bin/clang++" CC="distcc /usr/bin/clang"'
@@ -151,13 +161,16 @@ function ranger-cd {
   rm -f -- "$tempfile"
 }
 
+# Vim mode for zsh
 bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -M vicmd 'j' history-beginning-search-forward
 bindkey -M vicmd 'k' history-beginning-search-backward
 
+# Configure default compiler
 export CC=clang
 export CXX=clang++
 export LD=clang++
 
+# Make sure nano isn't used
 alias nano='vim'

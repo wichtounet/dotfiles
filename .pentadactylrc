@@ -5,4 +5,8 @@ group user
 set guioptions=ns
 set showtabline=never
 
+inoremap jj <esc>
+
+set hintkeys=asdfjkl
+
 " vim: set ft=pentadactyl:
