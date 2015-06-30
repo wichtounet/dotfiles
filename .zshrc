@@ -17,10 +17,10 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/intel/mkl/lib/intel64"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/intel/lib/intel64"
 
 # Add Intel tools to the path
-export PATH="$PATH:/opt/intel/vtune_amplifier_xe_2015/bin/"
-export PATH="$PATH:/opt/intel/inspector_xe_2015/bin/"
-export PATH="$PATH:/opt/intel/composer_xe_2015/bin/"
-export PATH="$PATH:/opt/intel/advisor_xe_2015/bin/"
+export PATH="$PATH:/opt/intel/vtune_amplifier_xe_2015/bin64/"
+export PATH="$PATH:/opt/intel/inspector_xe_2015/bin64/"
+export PATH="$PATH:/opt/intel/composer_xe_2015/bin64/"
+export PATH="$PATH:/opt/intel/advisor_xe_2015/bin64/"
 
 # Add ccache to the path
 export PATH="/usr/lib64/ccache/bin:$PATH"
