@@ -1,3 +1,6 @@
 [submodule ".config/awesome/apw"]
 	path = .config/awesome/apw
 	url = https://github.com/mokasin/apw.git
+[submodule "k"]
+	path = k
+	url = https://github.com/rimraf/k.git
