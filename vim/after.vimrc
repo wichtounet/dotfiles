@@ -1,9 +1,19 @@
 set backupdir=~/vimified/tmp/backup/
 
 " Configure syntastic
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': [] }
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
+"let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': [] }
 let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+let g:syntastic_cpp_compiler_options = ' -std=c++1y -stdlib=libc++'
+let g:syntastic_use_quickfix_lists = 1
 
 " Search for selection
 vnoremap // y/<C-R>"<CR>
@@ -63,9 +73,9 @@ noremap r<CR> :vsplit<CR>
 noremap r <C-w>
 
 " Make fast
-nnoremap mm :wa<bar>silent make<bar>redraw!<bar>cw<CR>
-nnoremap mf :wa<bar>silent make<bar>redraw!
-nnoremap mc :wa<bar>silent make clean<bar>redraw!<bar>cw<CR>
+nnoremap mm :wa<bar>Make<CR>
+nnoremap mf :wa<bar>Make -j7<CR>
+nnoremap mc :wa<bar>Make clean<CR>
 
 " Improve navigation in quick fix window
 nnoremap cn :cnext<CR>
