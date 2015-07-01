@@ -47,6 +47,8 @@ let g:airline_linecolumn_prefix = '⭡'
 
 let g:indentLine_char = '│'
 
+nnoremap <Space> :w <CR>
+
 " Map easily tab change
 nnoremap th  :tabfirst<CR>
 nnoremap tj  :tabnext<CR>
