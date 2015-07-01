@@ -40,6 +40,9 @@ if [[ -r ~/.local.zshrc ]]; then
 	source ~/.local.zshrc
 fi
 
+# Install k
+source /home/wichtounet/dotfiles/k/k.sh
+
 # Enable colors
 autoload -U colors && colors
 
@@ -93,6 +96,10 @@ source $ZSH/oh-my-zsh.sh
 #Always display the line where grep found something
 alias grep='grep -n'
 
+# Aliases for k
+alias ll='k'
+alias lla='k -a'
+
 #Utility aliases for git
 alias gc='git commit'
 alias gca='git commit -a'
@@ -100,7 +107,6 @@ alias gcadd='git add -A'
 alias gsu='git submodule update'
 
 # Misc aliases
-alias lla='ls -la'
 alias mkdir='mkdir -pv'
 alias mounts='mount |column -t'
 alias ports='netstat -tulanp'
