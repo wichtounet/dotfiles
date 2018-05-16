@@ -11,12 +11,12 @@ Xft.hintstyle:              hintslight
 URxvt*font: xft:Inconsolata for Powerline for Powerline:style=Medium:slant=0:pixelsize=14:minspace=True:antialias=true
 !URxvt*font: xft:Inconsolata:style=Medium:slant=0:pixelsize=14:minspace=True:antialias=true
 
-!URxvt*.transparent: true
-!URxvt*.shading: 25
+URxvt*.transparent: true
+URxvt*.shading: 25
 
 ! Better colors
 
-URxvt.background:  #000000
+URxvt.background:  #002B36
 URxvt.foreground:  #93a1a1
 URxvt.cursorColor: #839496
 

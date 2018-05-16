@@ -105,6 +105,7 @@ alias gc='git commit'
 alias gca='git commit -a'
 alias gcadd='git add -A'
 alias gsu='git submodule update'
+alias amend='git commit --amend'
 
 # Misc aliases
 alias mkdir='mkdir -pv'
@@ -180,3 +181,7 @@ export LD=clang++
 
 # Make sure nano isn't used
 alias nano='vim'
+
+alias tmux='TERM=screen-256color /usr/bin/tmux'
+
+alias mbm='BMDIR=/home/wichtounet/bookmarks mbm'
