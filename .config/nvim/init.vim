@@ -110,10 +110,14 @@ Plug 'junegunn/vim-easy-align'
 Plug 'dense-analysis/ale'
 
 " Better syntax highlighting for C++
-Plug 'bfrg/vim-cpp-modern'
+Plug 'bfrg/vim-cpp-modern',    { 'for': 'cpp' }
 
 " Better syntax highlighting for ansible
 Plug 'pearofducks/ansible-vim'
+
+" Some support for Rust
+Plug 'rust-lang/rust.vim',    { 'for': 'rust' }
+Plug 'mrcjkb/rustaceanvim',   { 'for': 'rust' }
 
 call plug#end()
 
@@ -443,6 +447,16 @@ lspconfig.clangd.setup {
     end
 }
 
+vim.g.rustaceanvim = function()
+  return {
+    server = {
+      on_attach = function(client, bufnr)
+         navic.attach(client, bufnr)
+      end
+    }
+  }
+end
+
 --- Start lualine
 local lualine = require('lualine')
 lualine.setup({
@@ -479,10 +493,10 @@ cmp.setup({
     },
     --- Tell cmp where to find sources for autocompletion
     sources = {
-      {name = 'path'},
-      {name = 'nvim_lsp', keyword_length = 1},
-      {name = 'buffer', keyword_length = 3},
-      {name = 'luasnip', keyword_length = 2},
+      { name = 'nvim_lsp' },
+      { name = 'path' },
+      { name = 'buffer' },
+      { name = 'luasnip' },
     },
     --- Set the style of the documentation window
     window = {
@@ -628,6 +642,10 @@ nnoremap <Leader>h <C-w>s<C-w>j
 
 " Yank from current cursor position to end of line
 map Y y$
+
+"  Use clang-format to format the file or the selection
+nnoremap <Leader>r :py3f /usr/lib/clang-format.py<CR>
+vnoremap <Leader>r :py3f /usr/lib/clang-format.py<CR>
 
 "  Use clang-format to format the file or the selection
 nnoremap <Leader>r :py3f /usr/lib/clang-format.py<CR>
