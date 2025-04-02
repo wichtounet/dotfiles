@@ -15,6 +15,10 @@ return {
   },
 
   {
+    "nvim-treesitter/nvim-treesitter"
+  },
+
+  {
     "nvim-lua/lsp-status.nvim"
   },
 
@@ -70,6 +74,15 @@ return {
           adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
         },
       }
+
+      local lspconfig = require "lspconfig"
+      lspconfig.clangd.setup {
+        on_attach = function(client, bufnr)
+          navic.attach(client, bufnr)
+        end
+      }
+
+      -- vim.g.rustaceanvim.tools.code_actions.ui_select_fallback = true;
     end
   },
 
@@ -96,7 +109,7 @@ return {
     'rcarriga/nvim-dap-ui',
     dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
     config = function()
-	require("dapui").setup()
+      require("dapui").setup()
     end,
   },
 
